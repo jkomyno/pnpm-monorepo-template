@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "@jkomyno/common-utils",
+  "version": "0.1.0",
+  "description": "Library that contains common utility functions",
+  "main": "lib",
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "pnpm clean && tsc",
+    "prettier-check": "prettier --parser=typescript \"src/**/*.{js,ts}\" --check",
+    "prettier-write": "prettier --parser=typescript \"src/**/*.{js,ts}\" --write",
+    "typecheck": "tsc",
+    "eslint-check": "eslint \"src/**/*.{js,ts}\"",
+    "lint-staged": "lint-staged",
+    "pretest": "jest --clearCache",
+    "test": "pnpm test:ci",
+    "test:unit": "JEST_LIB_UNDER_TEST=common-utils jest -c ../jest/jest.config.unit.mjs",
+    "test:integration": "JEST_LIB_UNDER_TEST=common-utils jest -c ../jest/jest.config.integration.mjs",
+    "test:local": "JEST_LIB_UNDER_TEST=common-utils jest -c ../jest/jest.config.local.mjs",
+    "test:ci": "JEST_LIB_UNDER_TEST=common-utils jest -c ../jest/jest.config.ci.mjs --runInBand"
+  }
+}

@@ -1,0 +1,79 @@
+name: CI workflow
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  docker:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: ['16.14.0', '18.0.0']
+
+    name: "${{ matrix.os }}: Node.js ${{ matrix.node }}"
+
+    env:
+      DOCKER_BUILDKIT: 1
+      COMPOSE_DOCKER_CLI_BUILD: 1 
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - name: Build Docker pnpm image
+        run: docker build -f Dockerfile.pnpm ./packages -t pnpm
+
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: ['16.14.0', '18.0.0']
+
+    name: "${{ matrix.os }}: Node.js ${{ matrix.node }}"
+
+    steps:
+      - name: Prepare git
+        run: git config --global core.autocrlf false
+
+      - uses: actions/checkout@v3
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - uses: pnpm/action-setup@v2.1.0
+        with:
+          version: 6.32.3
+          run_install: false
+      
+      - name: Install dependencies
+        run: pnpm i
+
+      - name: Run eslint
+        run: pnpm eslint-check
+
+      - name: Run prettier
+        run: pnpm prettier-check
+
+      - name: Transpile TS to JS
+        run: pnpm build

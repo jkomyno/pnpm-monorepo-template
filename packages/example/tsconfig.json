@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.node.json",
+  "include": ["src"],
+  "compilerOptions": {
+    "outDir": "lib",
+    "preserveSymlinks": true,
+    "declaration": true,
+    "declarationMap": true
+  }
+}
