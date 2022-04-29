@@ -15,9 +15,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: ['16.14.0', '18.0.0']
 
-    name: "${{ matrix.os }}: Node.js ${{ matrix.node }}"
+    name: "${{ matrix.os }}"
 
     env:
       DOCKER_BUILDKIT: 1
