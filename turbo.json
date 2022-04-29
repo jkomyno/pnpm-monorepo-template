@@ -25,6 +25,21 @@
         "^build"
       ]
     },
+    "test:unit": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "test:integration": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "test:ci": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
     "lint-staged": {}
   }
 }

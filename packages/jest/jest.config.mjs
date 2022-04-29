@@ -20,7 +20,6 @@ export const baseConfig = {
   },
   rootDir: `../${process.env.JEST_LIB_UNDER_TEST}`,
   setupFiles: [
-    'dotenv/config',
     // `${testRoot}/setup/mocks.ts`,
   ],
   verbose: false,

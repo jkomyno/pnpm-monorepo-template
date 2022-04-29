@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@jkomyno/cli",
+  "name": "@jkomyno/example",
   "version": "0.1.0",
   "description": "Example that imports a local package",
   "main": "lib",
@@ -12,12 +12,7 @@
     "typecheck": "tsc",
     "eslint-check": "eslint \"src/**/*.{js,ts}\"",
     "lint-staged": "lint-staged",
-    "pretest": "jest --clearCache",
-    "test": "pnpm test:ci",
-    "test:unit": "JEST_LIB_UNDER_TEST=cli jest -c ../jest/jest.config.unit.mjs",
-    "test:integration": "JEST_LIB_UNDER_TEST=cli jest -c ../jest/jest.config.integration.mjs",
-    "test:local": "JEST_LIB_UNDER_TEST=cli jest -c ../jest/jest.config.local.mjs",
-    "test:ci": "JEST_LIB_UNDER_TEST=cli jest -c ../jest/jest.config.ci.mjs --runInBand"
+    "pretest": "jest --clearCache"
   },
   "dependencies": {
     "@jkomyno/common-utils": "workspace:*"

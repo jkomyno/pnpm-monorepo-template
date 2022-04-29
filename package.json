@@ -13,7 +13,10 @@
     "eslint-check": "turbo run eslint-check",
     "prepare": "cd .. && husky install",
     "lint-staged": "turbo run lint-staged --concurrency=1",
-    "test": "turbo run test"
+    "test": "turbo run test",
+    "test:unit": "turbo run test:unit",
+    "test:integration": "turbo run test:integration",
+    "test:ci": "turbo run test:ci"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
@@ -28,7 +31,7 @@
     "jest": "^28.0.3",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
-    "ts-jest": "^27.1.4",
+    "ts-jest": "28.0.0-next.3",
     "turbo": "^1.2.6",
     "typescript": "^4.6.4"
   },
