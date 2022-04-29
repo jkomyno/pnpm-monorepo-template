@@ -16,11 +16,12 @@ jobs:
       matrix:
         os: [ubuntu-latest]
 
-    name: "${{ matrix.os }}"
+    name: "Docker: ${{ matrix.os }}"
 
     env:
       DOCKER_BUILDKIT: 1
-      COMPOSE_DOCKER_CLI_BUILD: 1 
+      COMPOSE_DOCKER_CLI_BUILD: 1
+      CI: 1 
 
     steps:
       - uses: actions/checkout@v3
@@ -44,7 +45,10 @@ jobs:
         os: [ubuntu-latest]
         node: ['16.14.0', '18.0.0']
 
-    name: "${{ matrix.os }}: Node.js ${{ matrix.node }}"
+    name: "Build: ${{ matrix.os }}, Node.js ${{ matrix.node }}"
+
+    env:
+      CI: 1
 
     steps:
       - name: Prepare git
@@ -68,11 +72,14 @@ jobs:
       - name: Install dependencies
         run: pnpm i
 
+      - name: Transpile TS to JS
+        run: pnpm build
+
       - name: Run eslint
         run: pnpm eslint-check
 
       - name: Run prettier
         run: pnpm prettier-check
 
-      - name: Transpile TS to JS
-        run: pnpm build
+      - name: Run unit tests
+        run: pnpm test:unit
