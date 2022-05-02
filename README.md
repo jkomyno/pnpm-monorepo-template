@@ -12,7 +12,7 @@
 - `turborepo`, whose configuration is stored in [`turbo.json`](./turbo.json)
 - an example [`Dockerfile`](./Dockerfile.pnpm) that can be built and used as a base image for your Node.js Docker containers.
 - the `jest` test engine, whose configuration is stored in the [`packages/jest`](./packages/jest) folder.
-- opinionated `prettier` and `eslint` setups.
+- opinionated [`prettier`](https://prettier.io) and [`eslint`](https://eslint.org) setups.
 
 ## Available Scripts
 
@@ -20,7 +20,6 @@
 - `pnpm build`: transpile the local TypeScript packages to JavaScript.
 - `pnpm eslint-check`: check that the code follows the `eslint` guidelines.
 - `pnpm prettier-check`: check that the code follows the `prettier` guidelines.
-- `pnpm prettier-write`: override the code to follow the `prettier` guidelines.
 - `pnpm prettier-write`: override the code to follow the `prettier` guidelines.
 - `pnpm test:unit`: run unit tests.
 - `pnpm test:integration`: run integration tests.
