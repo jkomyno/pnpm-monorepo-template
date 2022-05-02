@@ -31,7 +31,7 @@ All tests should be written in the `__tests__` directory of a local package.
 Moreover, unit tests should be placed in the `__tests__/unit` folder; similarly, integration tests should be placed in the `__tests__/integration` folder.
 This allows for easily running groups of tests (for instance, you might want to run unit tests locally, while deferring integration tests - that will probably need access to external services like Docker containers - to the CI only).
 
-In each local package's `package.json` file, make sure to replace the `JEST_LIB_UNDER_TEST` environment variable declaration for each `test*` command in the `scripts` section. 
+In each local package's `package.json` file, make sure to replace the `JEST_LIB_UNDER_TEST` environment variable declaration with the local package name, for each `test*` command in the `scripts` section. 
 
 ## FAQ
 
