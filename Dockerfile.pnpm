@@ -1,5 +1,5 @@
-ARG NODE_VERSION="18.0.0"
-ARG PNPM_VERSION="6.32.3"
+ARG NODE_VERSION="18.11.0"
+ARG PNPM_VERSION="7.4.1"
 
 ##
 # Create base image with pnpm installed 
