@@ -5,18 +5,7 @@
     "pnpm": ">=7"
   },
   "scripts": {
-    "build": "turbo run build",
-    "watch": "turbo run watch",
-    "prettier-check": "turbo run prettier-check",
-    "prettier-write": "turbo run prettier-write",
-    "typecheck": "turbo run typecheck",
-    "eslint-check": "turbo run eslint-check",
-    "prepare": "cd .. && husky install",
-    "lint-staged": "turbo run lint-staged --concurrency=1",
-    "test": "turbo run test",
-    "test:unit": "turbo run test:unit",
-    "test:integration": "turbo run test:integration",
-    "test:ci": "turbo run test:ci"
+    "build": "turbo run build"
   },
   "devDependencies": {
     "@types/jest": "^29.1.2",
@@ -34,6 +23,5 @@
     "ts-jest": "29.0.3",
     "turbo": "^1.5.6",
     "typescript": "^4.8.4"
-  },
-  "packageManager": "pnpm@7.4.1"
+  }
 }
