@@ -7,10 +7,7 @@
   "scripts": {
     "clean": "rimraf lib",
     "build": "pnpm clean && tsc",
-    "prettier-check": "prettier --parser=typescript \"src/**/*.{js,ts}\" --check",
-    "prettier-write": "prettier --parser=typescript \"src/**/*.{js,ts}\" --write",
     "typecheck": "tsc",
-    "eslint-check": "eslint \"src/**/*.{js,ts}\"",
     "lint-staged": "lint-staged"
   },
   "dependencies": {
