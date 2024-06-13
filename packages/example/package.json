@@ -6,9 +6,7 @@
   "main": "lib",
   "scripts": {
     "clean": "rimraf lib",
-    "build": "pnpm clean && tsc",
-    "typecheck": "tsc",
-    "lint-staged": "lint-staged"
+    "build": "pnpm clean && tsc"
   },
   "dependencies": {
     "@jkomyno/common-utils": "workspace:*"
