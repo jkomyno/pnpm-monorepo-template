@@ -1,0 +1,35 @@
+name: Release
+
+on:
+  push:
+    branches: 
+     - master
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: true
+
+      - name: Build
+        run: pnpm build
+
+      - name: Create Release
+        uses: changesets/action@v1
+
+      - uses: softprops/action-gh-release@v1
+        with:
+          files: ./packages/**/lib
