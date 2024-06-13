@@ -11,7 +11,6 @@
     "changeset:version": "changeset version"
   },
   "devDependencies": {
-    "@types/jest": "^29.1.2",
     "@types/node": "^18.11.0",
     "rimraf": "^3.0.2",
     "ts-jest": "29.0.3",
