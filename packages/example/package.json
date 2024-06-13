@@ -11,8 +11,7 @@
     "prettier-write": "prettier --parser=typescript \"src/**/*.{js,ts}\" --write",
     "typecheck": "tsc",
     "eslint-check": "eslint \"src/**/*.{js,ts}\"",
-    "lint-staged": "lint-staged",
-    "pretest": "jest --clearCache"
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@jkomyno/common-utils": "workspace:*"
