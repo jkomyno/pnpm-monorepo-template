@@ -29,6 +29,8 @@ jobs:
 
       - name: Create Release
         uses: changesets/action@v1
+        with:
+          version: pnpm changeset:version
 
       - uses: softprops/action-gh-release@v1
         with:
