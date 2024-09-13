@@ -3,7 +3,7 @@
   "name": "@jkomyno/common-utils",
   "version": "0.1.0",
   "description": "Library that contains common utility functions",
-  "main": "lib",
+  "main": "./build/index.js",
   "scripts": {
     "clean": "rimraf lib",
     "build": "pnpm clean && tsc",

@@ -3,7 +3,7 @@
   "name": "@jkomyno/example",
   "version": "0.1.0",
   "description": "Example that imports a local package",
-  "main": "lib",
+  "main": "./build/index.js",
   "scripts": {
     "clean": "rimraf lib",
     "build": "pnpm clean && tsc",

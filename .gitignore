@@ -280,4 +280,4 @@ dist
 .env.production.Local
 .turbo
 
-lib/
+build/
