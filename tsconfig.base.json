@@ -13,9 +13,9 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
-    "target": "esnext",
+    "target": "ES2022",
     "skipLibCheck": true
   }
 }
