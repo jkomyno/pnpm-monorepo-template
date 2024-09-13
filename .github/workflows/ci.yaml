@@ -88,11 +88,8 @@ jobs:
       - name: Transpile TS to JS
         run: pnpm build
 
-      - name: Run eslint
-        run: pnpm eslint-check
-
-      - name: Run prettier
-        run: pnpm prettier-check
+      - name: Lint code
+        run: pnpm lint:ci
 
       - name: Run unit tests
         run: pnpm test:unit
