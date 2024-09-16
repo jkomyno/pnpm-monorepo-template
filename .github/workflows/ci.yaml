@@ -19,37 +19,6 @@ permissions:
   pull-requests: read
 
 jobs:
-  docker:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: ['20.9.0']
-
-    name: "Docker: ${{ matrix.os }}"
-
-    env:
-      DOCKER_BUILDKIT: 1
-      COMPOSE_DOCKER_CLI_BUILD: 1
-      CI: 1 
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Cache pnpm modules
-        uses: actions/cache@v4
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-${{ matrix.node }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.node }}-node-
-
-      - name: Build Docker pnpm image
-        run: docker buildx build -f Dockerfile.pnpm --build-arg NODE_VERSION="${{ matrix.node }}" ./packages -t pnpm
-
   build:
     runs-on: ${{ matrix.os }}
 
@@ -68,6 +37,17 @@ jobs:
         run: git config --global core.autocrlf false
 
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8.15.8
+          run_install: false
+          standalone: true
+          dest: ~/setup-pnpm
 
       - name: Cache pnpm modules
         uses: actions/cache@v4
