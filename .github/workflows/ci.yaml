@@ -76,11 +76,6 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.node }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.node }}-node-
-
-      - uses: pnpm/action-setup@v2.1.0
-        with:
-          version: 7.4.1
-          run_install: false
       
       - name: Install dependencies
         run: pnpm i

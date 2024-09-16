@@ -4,17 +4,21 @@
   "version": "0.1.0",
   "description": "Library that contains common utility functions",
   "main": "./build/index.js",
+  "exports": {
+    ".": {
+      "import": "./build/index.js",
+      "require": "./build/index.js",
+      "types": "./build/index.d.ts"
+    }
+  },
   "scripts": {
     "clean": "rimraf build",
     "build": "pnpm clean && tsc",
     "typecheck": "tsc",
     "lint:ci": "biome ci",
     "lint": "biome check --fix --unsafe",
-    "pretest": "jest --clearCache",
-    "test": "pnpm test:ci",
-    "test:unit": "JEST_LIB_UNDER_TEST=common-utils jest -c ../jest/jest.config.unit.mjs",
-    "test:integration": "JEST_LIB_UNDER_TEST=common-utils jest -c ../jest/jest.config.integration.mjs",
-    "test:local": "JEST_LIB_UNDER_TEST=common-utils jest -c ../jest/jest.config.local.mjs",
-    "test:ci": "JEST_LIB_UNDER_TEST=common-utils jest -c ../jest/jest.config.ci.mjs --runInBand"
+    "test": "vitest --workspace ../../vitest.workspace.ts run",
+    "test:unit": "vitest --workspace ../../vitest.workspace.ts --project unit run",
+    "test:integration": "vitest --workspace ../../vitest.workspace.ts --project integration run"
   }
 }

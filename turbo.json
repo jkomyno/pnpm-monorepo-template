@@ -16,18 +16,6 @@
     "clean": {
       "cache": false,
       "outputs": ["packages/*/build"]
-    },
-    "test": {
-      "dependsOn": ["^build"]
-    },
-    "test:unit": {
-      "dependsOn": ["^build"]
-    },
-    "test:integration": {
-      "dependsOn": ["^build"]
-    },
-    "test:ci": {
-      "dependsOn": ["^build"]
     }
   }
 }

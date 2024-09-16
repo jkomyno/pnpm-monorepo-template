@@ -10,7 +10,7 @@
     "typecheck": "tsc",
     "lint:ci": "biome ci",
     "lint": "biome check --fix --unsafe",
-    "pretest": "jest --clearCache"
+    "test:unit": "vitest --workspace ../../vitest.workspace.ts --project unit run"
   },
   "dependencies": {
     "@jkomyno/common-utils": "workspace:*"

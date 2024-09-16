@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`sum > sum([]) = 0 1`] = `0`;
+
+exports[`sum > sum([2, 3, 0, 1]) = 6 1`] = `0`;
