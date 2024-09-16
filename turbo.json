@@ -8,9 +8,6 @@
     "app#watch": {
       "dependsOn": ["^build"]
     },
-    "typecheck": {
-      "dependsOn": ["^typecheck"]
-    },
     "lint:ci": {},
     "lint": {},
     "clean": {

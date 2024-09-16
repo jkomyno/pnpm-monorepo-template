@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.base.node.json",
-  "include": ["src"],
+  "include": ["src", "__tests__"],
   "compilerOptions": {
     "outDir": "build"
   }

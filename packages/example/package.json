@@ -6,8 +6,8 @@
   "main": "./build/index.js",
   "scripts": {
     "clean": "rimraf build",
-    "build": "pnpm clean && tsc",
-    "typecheck": "tsc",
+    "prebuild": "pnpm clean",
+    "build": "tsc --build tsconfig.build.json",
     "lint:ci": "biome ci",
     "lint": "biome check --fix --unsafe",
     "test:unit": "vitest --workspace ../../vitest.workspace.ts --project unit run"

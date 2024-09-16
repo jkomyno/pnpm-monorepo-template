@@ -13,8 +13,8 @@
   },
   "scripts": {
     "clean": "rimraf build",
-    "build": "pnpm clean && tsc",
-    "typecheck": "tsc",
+    "prebuild": "pnpm clean",
+    "build": "tsc --build tsconfig.build.json",
     "lint:ci": "biome ci",
     "lint": "biome check --fix --unsafe",
     "test": "vitest --workspace ../../vitest.workspace.ts run",
