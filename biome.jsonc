@@ -45,7 +45,9 @@
         "noExtraBooleanCast": "error",
         "noMultipleSpacesInRegularExpressionLiterals": "error",
         "noUselessCatch": "error",
-        "noWith": "error"
+        "noWith": "error",
+        "noStaticOnlyClass": "off",
+        "noBannedTypes": "off"
       },
       "nursery": {
         "useSortedClasses": "error"
@@ -74,7 +76,7 @@
         "noUnsafeFinally": "error",
         "noUnsafeOptionalChaining": "error",
         "noUnusedLabels": "error",
-        "noUnusedVariables": "error",
+        "noUnusedVariables": "warn",
         "useIsNan": "error",
         "useValidForDirection": "error",
         "useYield": "error"
@@ -92,6 +94,7 @@
         "noDuplicateObjectKeys": "error",
         "noDuplicateParameters": "error",
         "noEmptyBlockStatements": "error",
+        "noExplicitAny": "off",
         "noFallthroughSwitchClause": "error",
         "noFunctionAssign": "error",
         "noGlobalAssign": "error",
