@@ -1,5 +1,4 @@
 name: 'Setup (Node.js)'
-
 description: 'Setup Node.js and pnpm'
 
 inputs:
@@ -19,26 +18,26 @@ runs:
   # Composite actions cannot use secrets, and are logged as a single step.
   using: 'composite'
   steps:
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ inputs.node-version }}
+  - name: Setup Node.js
+    uses: actions/setup-node@v4
+    with:
+      node-version: ${{ inputs.node-version }}
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: ${{ inputs.pnpm-version }}
-          run_install: false
-          standalone: true
-          dest: ~/setup-pnpm
+  - uses: pnpm/action-setup@v4
+    with:
+      version: ${{ inputs.pnpm-version }}
+      run_install: false
+      standalone: true
+      dest: ~/setup-pnpm
 
-      - name: Cache pnpm modules
-        uses: actions/cache@v4
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-${{ matrix.node }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.node }}-node-
+  - name: Cache pnpm modules
+    uses: actions/cache@v4
+    with:
+      path: ~/.pnpm-store
+      key: ${{ runner.os }}-${{ matrix.node }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
+      restore-keys: |
+        ${{ runner.os }}-${{ matrix.node }}-node-
 
-    - name: Install dependencies
-      run: pnpm install --frozen-lockfile
-      shell: bash
+  - name: Install dependencies
+    run: pnpm install --frozen-lockfile
+    shell: bash
