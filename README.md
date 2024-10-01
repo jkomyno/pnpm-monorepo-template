@@ -1,10 +1,25 @@
 # pnpm-monorepo-example
 
-[![Github Actions](https://github.com/jkomyno/pnpm-monorepo-example/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/jkomyno/pnpm-monorepo-example/actions/workflows/ci.yaml)
+[![Github Actions](https://github.com/jkomyno/pnpm-monorepo-example/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/jkomyno/pnpm-monorepo-example/actions/workflows/ci.yaml)
 
 > Practical example of a `TypeScript` monorepo with [`pnpm`](https://pnpm.io), [`turborepo`](https://turborepo.org), and [`vitest`](https://vitest.dev/).
 
+Tested with:
+- **Node.js v20.17.0**
+- **pnpm v9.11.0**
+- **vitest v2.1.1**
+
 ---------------------------------------------
+
+## Table of Contents
+
+- [What's Included](#whats-included)
+- [Available Scripts](#available-scripts)
+- [Test Structure](#test-structure)
+- [FAQ](#faq)
+- [Author](#-author)
+- [Show your support](#-show-your-support)
+- [License](#-license)
 
 ## What's Included
 
@@ -55,4 +70,4 @@ Give a ⭐️ if this project helped or inspired you!
 ## 📝 License
 
 Built with ❤️ by [Alberto Schiabel](https://github.com/jkomyno).<br />
-This project is [MIT](https://github.com/jkomyno/pnpm-monorepo-example/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/jkomyno/pnpm-monorepo-example/blob/main/LICENSE) licensed.
