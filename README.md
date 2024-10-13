@@ -7,7 +7,7 @@
 Tested with:
 - **Node.js v20.17.0**
 - **pnpm v9.11.0**
-- **vitest v2.1.1**
+- **vitest v2.1.2**
 
 ---------------------------------------------
 
@@ -24,6 +24,7 @@ Tested with:
 ## What's Included
 
 - `pnpm` workspace, whose configuration is stored in [`pnpm-workspace.yaml`](/pnpm-workspace.yaml). Two example packages are included, [`common-utils`](packages/common-utils) and [`example`](packages/example), with the latter importing `common-utils` as a dependency. All local packages are decorated with a `@jkomyno/*` scope (you may want to substitute these instances in the `name` entries of any `package.json` with yours or your company's name).
+- `tsup` bundler, whose configuration is stored in [`tsup.config.ts`](./tsup.config.ts).
 - `turborepo`, whose configuration is stored in [`turbo.json`](./turbo.json)
 - an example [`Dockerfile`](./Dockerfile.pnpm) that can be built and used as a base image for your Node.js Docker containers.
 - the `vitest` test engine, whose configuration is stored in [`vitest.workspace.ts`](./vitest.workspace.ts).
@@ -33,6 +34,8 @@ Tested with:
 
 - `pnpm install`: install the dependencies needed for each package.
 - `pnpm build`: transpile the local TypeScript packages to JavaScript.
+- `pnpm build:watch`: transpile the local TypeScript packages to JavaScript, and watch for changes.
+- `pnpm check:exports`: check that the `exports` field in the `package.json` files of each exported package is correctly set, using [`@arethetypeswrong/cli`](https://www.npmjs.com/package/@arethetypeswrong/cli).
 - `pnpm lint:ci`: check that the code follows the `biome` guidelines.
 - `pnpm lint`: check that the code follows the `biome` guidelines, and override it to follow them if possible.
 - `pnpm test:unit`: run unit tests.

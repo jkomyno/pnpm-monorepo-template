@@ -1,7 +1,12 @@
 {
-  "extends": "../../tsconfig.base.node.json",
+  "extends": "../../tsconfig.src.json",
   "include": ["src"],
   "compilerOptions": {
-    "outDir": "build"
-  }
+    // Specify an output folder for all emitted files.
+    "outDir": "build",
+    // See: https://github.com/egoist/tsup/issues/571#issuecomment-1760052931
+    "composite": false,
+    // Only output d.ts files and not JavaScript files.
+    "emitDeclarationOnly": false,
+  },
 }

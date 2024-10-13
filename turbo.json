@@ -5,12 +5,13 @@
     "build": {
       "dependsOn": ["^build"]
     },
-    "watch": {},
+    "build:watch": {},
+    "check:exports": {
+      "dependsOn": ["^build"]
+    },
     "app#watch": {
       "dependsOn": ["^build"]
     },
-    "lint:ci": {},
-    "lint": {},
     "clean": {
       "cache": false,
       "outputs": ["packages/*/build"]

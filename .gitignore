@@ -281,3 +281,6 @@ dist
 .turbo
 
 build/
+
+# Build cache manifests
+*.tsbuildinfo

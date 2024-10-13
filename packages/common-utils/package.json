@@ -1,26 +1,42 @@
 {
-  "private": true,
+  "private": false,
   "name": "@jkomyno/common-utils",
   "version": "0.1.0",
-  "description": "Library that contains common utility functions",
+  "description": "Demo library that contains common utility functions",
   "repository": "https://github.com/jkomyno/pnpm-monorepo-example.git",
   "author": {
     "name": "Alberto Schiabel",
     "email": "alberto.schiabel@gmail.com"
   },
+  "files": ["build"],
+
   "main": "./build/index.js",
+  "module": "./build/index.mjs",
+  "types": "./build/index.d.ts",
+  "__exports-comment": "// Define output files for Node.js export maps (https://nodejs.org/api/packages.html#exports)",
   "exports": {
     ".": {
-      "import": "./build/index.js",
-      "require": "./build/index.js",
-      "types": "./build/index.d.ts"
-    }
+      "import": {
+        "@jkomyno/source": "./src/index.ts",
+        "types": "./build/index.d.mts",
+        "import": "./build/index.mjs",
+        "default": "./build/index.mjs"
+      },
+      "require": {
+        "@jkomyno/source": "./src/index.ts",
+        "types": "./build/index.d.ts",
+        "import": "./build/index.js",
+        "default": "./build/index.js"
+      }
+    },
+    "./package.json": "./package.json"
   },
+
   "scripts": {
-    "clean": "rimraf build",
-    "build": "tsc --build tsconfig.build.json",
-    "lint:ci": "biome ci",
-    "lint": "biome check --fix --unsafe",
+    "clean": "rimraf build .turbo",
+    "build": "tsup ./src/index.ts --tsconfig ./tsconfig.build.json --config ../../tsup.config.ts",
+    "build:watch": "pnpm build --watch",
+    "check:exports": "attw --pack .",
     "test": "vitest --workspace ../../vitest.workspace.ts run",
     "test:unit": "vitest --workspace ../../vitest.workspace.ts --project unit run",
     "test:integration": "vitest --workspace ../../vitest.workspace.ts --project integration run"

@@ -1,7 +1,9 @@
 {
-  "extends": "../../tsconfig.base.node.json",
+  "extends": "../../tsconfig.test.json",
   "include": ["src", "__tests__"],
   "compilerOptions": {
-    "outDir": "build"
-  }
+    // Disable emitting file from a compilation.
+    "noEmit": true
+  },
+  "references": []
 }
