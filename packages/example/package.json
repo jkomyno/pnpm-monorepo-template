@@ -3,10 +3,13 @@
   "name": "@jkomyno/example",
   "version": "0.1.0",
   "description": "Example that imports a local package",
+  "author": {
+    "name": "Alberto Schiabel",
+    "email": "alberto.schiabel@gmail.com"
+  },
   "main": "./build/index.js",
   "scripts": {
     "clean": "rimraf build",
-    "prebuild": "pnpm clean",
     "build": "tsc --build tsconfig.build.json",
     "lint:ci": "biome ci",
     "lint": "biome check --fix --unsafe",

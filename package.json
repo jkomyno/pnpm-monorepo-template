@@ -1,6 +1,14 @@
 {
   "private": true,
-  "name": "packages",
+  "type": "module",
+  "name": "@jkomyno/pnpm-monorepo-example",
+  "description": "Practical example of a `TypeScript` monorepo with `pnpm`, `turborepo`, and `vitest`",
+  "repository": "https://github.com/jkomyno/pnpm-monorepo-example.git",
+  "author": {
+    "name": "Alberto Schiabel",
+    "email": "alberto.schiabel@gmail.com"
+  },
+  "license": "MIT",
   "engines": {
     "pnpm": ">=8"
   },
@@ -13,12 +21,13 @@
     "test": "pnpm -r --if-present test",
     "test:unit": "pnpm -r --if-present test:unit",
     "test:integration": "pnpm -r --if-present test:integration",
-    "prepare": "husky"
+    "prepare": "is-ci || husky"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.3",
     "@types/node": "20.9.0",
     "husky": "^9.1.6",
+    "is-ci": "^3.0.1",
     "lint-staged": "^15.2.10",
     "rimraf": "^6.0.1",
     "taze": "^0.17.2",
@@ -30,5 +39,8 @@
   "pre-commit": "lint-staged",
   "lint-staged": {
     "*.{js,ts,cjs,mjs,md,json,jsonc}": "biome ci --no-errors-on-unmatched"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }

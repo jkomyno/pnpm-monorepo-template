@@ -17,6 +17,9 @@ importers:
       husky:
         specifier: ^9.1.6
         version: 9.1.6
+      is-ci:
+        specifier: ^3.0.1
+        version: 3.0.1
       lint-staged:
         specifier: ^15.2.10
         version: 15.2.10
@@ -876,6 +879,11 @@ packages:
     engines: {node: '>= 16'}
     dev: true
 
+  /ci-info@3.9.0:
+    resolution: {integrity: sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==}
+    engines: {node: '>=8'}
+    dev: true
+
   /cli-cursor@5.0.0:
     resolution: {integrity: sha512-aCj4O5wKyszjMmDT4tZj93kxyydN/K5zPWSCe6/0AV/AA1pqe5ZBIw0a2ZfPQV7lL5/yb5HsUreJ6UFAF1tEQw==}
     engines: {node: '>=18'}
@@ -1147,6 +1155,13 @@ packages:
       tsx: 4.19.1
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /is-ci@3.0.1:
+    resolution: {integrity: sha512-ZYvCgrefwqoQ6yTyYUbQu64HsITZ3NfKX1lzaEYdkTDcfKzzCI/wthRRYKkdjHKFVgNiXKAKm65Zo1pk2as/QQ==}
+    hasBin: true
+    dependencies:
+      ci-info: 3.9.0
     dev: true
 
   /is-fullwidth-code-point@3.0.0:
