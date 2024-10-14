@@ -43,6 +43,7 @@ runs:
       cache-dependency-path: pnpm-lock.yaml
       cache: 'pnpm'
       node-version: ${{ inputs.node-version }}
+      registry-url: "https://registry.npmjs.org"
 
   - name: '📦️ Install Dependencies'
     shell: bash
