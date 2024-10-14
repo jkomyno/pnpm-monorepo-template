@@ -1,8 +1,8 @@
-# pnpm-monorepo-example
+# pnpm-monorepo-template
 
-[![Github Actions](https://github.com/jkomyno/pnpm-monorepo-example/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/jkomyno/pnpm-monorepo-example/actions/workflows/ci.yaml)
+[![Github Actions](https://github.com/jkomyno/pnpm-monorepo-template/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/jkomyno/pnpm-monorepo-template/actions/workflows/ci.yaml)
 
-> Practical example of a `TypeScript` monorepo with [`pnpm`](https://pnpm.io), [`turborepo`](https://turborepo.org), and [`vitest`](https://vitest.dev/).
+> Pragmatic template for a `TypeScript` monorepo with [`pnpm`](https://pnpm.io), [`turborepo`](https://turborepo.org), and [`vitest`](https://vitest.dev/).
 
 Tested with:
 - **Node.js v20.17.0**
