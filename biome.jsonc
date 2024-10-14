@@ -1,17 +1,43 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
-  // Note: UNIX-like glob patterns {a,b,c} aren't supported yet.
-  "files": {
-    "ignore": ["./**/node_modules/**", "./public/**", "./build/**"],
-    "include": ["./app/**/", "./*.ts", "./*.js", "./*.json", "./*.jsonc"]
-  },
-  "organizeImports": { "enabled": true },
   "formatter": {
     "enabled": true,
     "indentWidth": 2,
     "indentStyle": "space",
     "lineWidth": 120
   },
+  // Note: UNIX-like glob patterns {a,b,c} aren't supported yet.
+  "files": {
+    "ignore": ["./**/node_modules/**", "./public/**", "./build/**"],
+    "include": ["./app/**/", "./*.ts", "./*.js", "./*.json", "./*.jsonc"]
+  },
+  "overrides": [
+    {
+      "include": ["./**/tsconfig.*.json"],
+      "json": {
+        "parser": {
+          "allowComments": true,
+          "allowTrailingCommas": true
+        },
+        "formatter": {
+          "trailingCommas": "all"
+        }
+      }
+    },
+    {
+      "include": ["./turbo.json"],
+      "json": {
+        "parser": {
+          "allowComments": true,
+          "allowTrailingCommas": false
+        },
+        "formatter": {
+          "trailingCommas": "none"
+        }
+      }
+    }
+  ],
+  "organizeImports": { "enabled": true },
   "javascript": {
     "globals": [
       "React",
@@ -30,11 +56,6 @@
     "formatter": {
       "quoteStyle": "single",
       "semicolons": "asNeeded"
-    }
-  },
-  "css": {
-    "linter": {
-      "enabled": true
     }
   },
   "linter": {
