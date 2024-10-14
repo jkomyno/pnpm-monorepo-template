@@ -8,7 +8,7 @@
   },
   // Note: UNIX-like glob patterns {a,b,c} aren't supported yet.
   "files": {
-    "ignore": ["./**/node_modules/**", "./public/**", "./build/**"],
+    "ignore": ["./**/node_modules/**", "./public/**", "./build/**", "**/.turbo/**"],
     "include": ["./app/**/", "./*.ts", "./*.js", "./*.json", "./*.jsonc"]
   },
   "overrides": [
