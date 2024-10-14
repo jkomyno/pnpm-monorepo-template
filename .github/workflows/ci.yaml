@@ -1,4 +1,4 @@
-name: CI workflow
+name: '  ▶️  CI Workflow'
 
 on:
   push:
@@ -10,6 +10,10 @@ on:
       - 'LICENSE'
       - 'README.md'
   workflow_dispatch:
+
+concurrency:
+  group: pull-${{ github.ref }}-1
+  cancel-in-progress: true
 
 env:
   CI: "true"
@@ -38,17 +42,20 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup (Node.js)
+      - name: '💽️ Setup (Node.js)'
         uses: ./.github/actions/setup-node
         with:
           node-version: ${{ matrix.node }}
           pnpm-version: ${{ matrix.pnpm }}
 
-      - name: Transpile TS to JS
-        run: pnpm build
+      - name: '🏗️ Build: Transpile TS to JS'
+        run: pnpm check:exports
 
-      - name: Lint code
+      - name: '🧪 Verify build'
+        run: pnpm check:exports
+
+      - name: '🚨️ Lint code'
         run: pnpm lint:ci
 
-      - name: Run unit tests
+      - name: '🧳 Run unit tests'
         run: pnpm test:unit
