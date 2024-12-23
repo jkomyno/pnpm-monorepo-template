@@ -1,4 +1,4 @@
-name: '  ▶️  CI Workflow'
+name: "  ▶️  CI Workflow"
 
 on:
   push:
@@ -6,9 +6,9 @@ on:
       - main
   pull_request:
     paths-ignore:
-      - '.vscode/**'
-      - 'LICENSE'
-      - 'README.md'
+      - ".vscode/**"
+      - "LICENSE"
+      - "README.md"
   workflow_dispatch:
 
 concurrency:
@@ -29,8 +29,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: ['20.17.0']
-        pnpm: ['9.11.0']
+        node: ["20.17.0"]
+        pnpm: ["9.15.0"]
 
     name: "Build: ${{ matrix.os }}, Node.js ${{ matrix.node }}"
 
@@ -42,20 +42,20 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: '💽️ Setup (Node.js)'
+      - name: "💽️ Setup (Node.js)"
         uses: ./.github/actions/setup-node
         with:
           node-version: ${{ matrix.node }}
           pnpm-version: ${{ matrix.pnpm }}
 
-      - name: '🏗️ Build: Transpile TS to JS'
+      - name: "🏗️ Build: Transpile TS to JS"
         run: pnpm check:exports
 
-      - name: '🧪 Verify build'
+      - name: "🧪 Verify build"
         run: pnpm check:exports
 
-      - name: '🚨️ Lint code'
+      - name: "🚨️ Lint code"
         run: pnpm lint:ci
 
-      - name: '🧳 Run unit tests'
+      - name: "🧳 Run unit tests"
         run: pnpm test:unit
