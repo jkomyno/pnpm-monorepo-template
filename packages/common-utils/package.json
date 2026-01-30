@@ -36,11 +36,11 @@
 
   "scripts": {
     "clean": "rimraf build .turbo",
-    "build": "tsup ./src/index.ts --tsconfig ./tsconfig.build.json --config ../../tsup.config.ts",
-    "build:watch": "pnpm build --watch",
+    "build": "tsdown --config-loader unrun",
+    "build:watch": "tsdown --config-loader unrun --watch",
     "check:exports": "attw --pack .",
-    "test": "vitest -c ../../vitest.config.ts run",
-    "test:unit": "vitest -c ../../vitest.config.ts --project unit run",
-    "test:integration": "vitest -c ../../vitest.config.ts --project integration run"
+    "test": "vitest run",
+    "test:unit": "vitest --project unit run",
+    "test:integration": "vitest --project integration run"
   }
 }

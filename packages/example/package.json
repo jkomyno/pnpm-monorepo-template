@@ -10,7 +10,8 @@
   "main": "./src/index.ts",
   "scripts": {
     "clean": "rimraf build .turbo",
-    "test:unit": "vitest -c ../../vitest.config.ts --project unit run"
+    "test": "vitest run",
+    "test:unit": "vitest --project unit run"
   },
   "dependencies": {
     "@jkomyno/common-utils": "workspace:*"
