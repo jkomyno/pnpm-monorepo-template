@@ -9,9 +9,6 @@
     "email": "alberto.schiabel@gmail.com"
   },
   "license": "MIT",
-  "engines": {
-    "pnpm": ">=8"
-  },
   "scripts": {
     "build": "turbo run build",
     "build:watch": "turbo run build:watch",
@@ -25,19 +22,18 @@
     "prepare": "is-ci || husky"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "^0.16.4",
-    "@biomejs/biome": "^1.9.4",
-    "@types/node": "20.9.0",
+    "@arethetypeswrong/cli": "^0.18.2",
+    "@biomejs/biome": "^2.3.13",
+    "@types/node": "25.1.0",
     "husky": "^9.1.7",
-    "is-ci": "^3.0.1",
-    "lint-staged": "^15.2.11",
-    "rimraf": "^6.0.1",
-    "taze": "^0.17.2",
-    "tsup": "^8.3.5",
-    "tsx": "^4.19.2",
-    "turbo": "^2.3.3",
-    "typescript": "^5.7.2",
-    "vitest": "^2.1.8"
+    "is-ci": "^4.1.0",
+    "lint-staged": "^16.2.7",
+    "rimraf": "^6.1.2",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "turbo": "^2.8.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
   },
   "pre-commit": "lint-staged",
   "lint-staged": {
@@ -45,5 +41,6 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
-  }
+  },
+  "packageManager": "pnpm@10.28.2"
 }
