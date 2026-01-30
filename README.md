@@ -24,9 +24,9 @@ Tested with:
 ## What's Included
 
 - `pnpm` workspace, whose configuration is stored in [`pnpm-workspace.yaml`](/pnpm-workspace.yaml). Two example packages are included, [`common-utils`](packages/common-utils) and [`example`](packages/example), with the latter importing `common-utils` as a dependency. All local packages are decorated with a `@jkomyno/*` scope (you may want to substitute these instances in the `name` entries of any `package.json` with yours or your company's name).
-- `tsup` bundler, whose configuration is stored in [`tsup.config.ts`](./tsup.config.ts).
+- `tsdown` bundler, whose base configuration is stored in [`tsdown.config.base.ts`](./tsdown.config.base.ts).
 - `turborepo`, whose configuration is stored in [`turbo.json`](./turbo.json)
-- the `vitest` test engine, whose configuration is stored in [`vitest.config.ts`](./vitest.config.ts).
+- the `vitest` test engine, whose base configuration is stored in [`vitest.config.base.ts`](./vitest.config.base.ts).
 - opinionated linting setups via [`biome`](https://biomejs.dev/), whose configuration is defined in the [`biome.jsonc`](./biome.jsonc) file.
 
 ## Available Scripts
