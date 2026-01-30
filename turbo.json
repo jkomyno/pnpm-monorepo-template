@@ -1,6 +1,5 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "dangerouslyDisablePackageManagerCheck": true,
   "tasks": {
     "build": {
       "dependsOn": ["^build"]
