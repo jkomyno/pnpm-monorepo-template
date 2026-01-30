@@ -29,24 +29,19 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: ["20.17.0"]
-        pnpm: ["9.15.0"]
 
-    name: "Build: ${{ matrix.os }}, Node.js ${{ matrix.node }}"
+    name: "Build: ${{ matrix.os }}"
 
     steps:
       - name: Prepare git
         run: git config --global core.autocrlf false
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
 
       - name: "💽️ Setup (Node.js)"
         uses: ./.github/actions/setup-node
-        with:
-          node-version: ${{ matrix.node }}
-          pnpm-version: ${{ matrix.pnpm }}
 
       - name: "🏗️ Build: Transpile TS to JS"
         run: pnpm check:exports

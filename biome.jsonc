@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.3.13/schema.json",
   "formatter": {
     "enabled": true,
     "indentWidth": 2,
@@ -8,12 +8,21 @@
   },
   // Note: UNIX-like glob patterns {a,b,c} aren't supported yet.
   "files": {
-    "ignore": ["./**/node_modules/**", "./public/**", "./build/**", "**/.turbo/**"],
-    "include": ["./app/**/", "./*.ts", "./*.js", "./*.json", "./*.jsonc"]
+    "includes": [
+      "**/*.ts",
+      "**/*.js",
+      "**/*.json",
+      "**/*.jsonc",
+      "!**/node_modules",
+      "!**/build",
+      "!**/dist",
+      "!**/.turbo",
+      "!public"
+    ]
   },
   "overrides": [
     {
-      "include": ["./**/tsconfig.*.json"],
+      "includes": ["**/tsconfig.*.json"],
       "json": {
         "parser": {
           "allowComments": true,
@@ -25,7 +34,7 @@
       }
     },
     {
-      "include": ["./turbo.json"],
+      "includes": ["turbo.json"],
       "json": {
         "parser": {
           "allowComments": true,
@@ -37,7 +46,7 @@
       }
     }
   ],
-  "organizeImports": { "enabled": true },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "javascript": {
     "globals": [
       "React",
@@ -64,11 +73,10 @@
       "recommended": true,
       "complexity": {
         "noExtraBooleanCast": "error",
-        "noMultipleSpacesInRegularExpressionLiterals": "error",
         "noUselessCatch": "error",
-        "noWith": "error",
         "noStaticOnlyClass": "off",
-        "noBannedTypes": "off"
+        "noBannedTypes": "off",
+        "noAdjacentSpacesInRegex": "error"
       },
       "nursery": {
         "useSortedClasses": "error"
@@ -85,7 +93,6 @@
         "noGlobalObjectCalls": "error",
         "noInnerDeclarations": "error",
         "noInvalidConstructorSuper": "error",
-        "noNewSymbol": "error",
         "noNonoctalDecimalEscape": "error",
         "noPrecisionLoss": "error",
         "noSelfAssign": "error",
@@ -100,7 +107,9 @@
         "noUnusedVariables": "warn",
         "useIsNan": "error",
         "useValidForDirection": "error",
-        "useYield": "error"
+        "useYield": "error",
+        "noInvalidBuiltinInstantiation": "error",
+        "useValidTypeof": "error"
       },
       "suspicious": {
         "noApproximativeNumericConstant": "off",
@@ -126,7 +135,7 @@
         "noShadowRestrictedNames": "error",
         "noUnsafeNegation": "error",
         "useGetterReturn": "error",
-        "useValidTypeof": "error"
+        "noWith": "error"
       }
     }
   }

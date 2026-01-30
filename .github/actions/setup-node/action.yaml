@@ -3,13 +3,17 @@ description: 'Setup Node.js and pnpm'
 
 inputs:
   node-version:
-    description: 'The Node.js version to use'
-    required: true
-    default: 'lts'
+    description: 'The Node.js version to use (leave empty to use .nvmrc)'
+    required: false
+    default: ''
+  node-version-file:
+    description: 'File containing the Node.js version (e.g., .nvmrc)'
+    required: false
+    default: '.nvmrc'
   pnpm-version:
-    description: 'The pnpm version to use'
-    required: true
-    default: 'latest'
+    description: 'The pnpm version to use (leave empty to use packageManager field in package.json)'
+    required: false
+    default: ''
 
 runs:
   # Read about composite actions in:
@@ -19,15 +23,15 @@ runs:
   using: 'composite'
   steps:
   - name: '🔧 Install: pnpm'
-    uses: pnpm/action-setup@v4
+    uses: pnpm/action-setup@9fd676a19091d4595eefd76e4bd31c97133911f1 # v4.2.0
     with:
-      version: ${{ inputs.pnpm-version }}
+      version: ${{ inputs.pnpm-version || '' }}
       run_install: false
       standalone: true
       dest: ~/setup-pnpm
 
   - name: 🔺️ Cache (turbo)
-    uses: actions/cache@v4
+    uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
     with:
       path: .turbo
       key: ${{ runner.os }}-turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
@@ -38,11 +42,12 @@ runs:
         ${{ runner.os }}-turbo
 
   - name: '💽️ Setup Node.js'
-    uses: actions/setup-node@v4
+    uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
     with:
       cache-dependency-path: pnpm-lock.yaml
       cache: 'pnpm'
-      node-version: ${{ inputs.node-version }}
+      node-version: ${{ inputs.node-version || '' }}
+      node-version-file: ${{ inputs.node-version && '' || inputs.node-version-file }}
       registry-url: "https://registry.npmjs.org"
 
   - name: '📦️ Install Dependencies'

@@ -8,7 +8,9 @@
     "name": "Alberto Schiabel",
     "email": "alberto.schiabel@gmail.com"
   },
-  "files": ["build"],
+  "files": [
+    "build"
+  ],
 
   "main": "./build/index.js",
   "module": "./build/index.mjs",
@@ -37,8 +39,8 @@
     "build": "tsup ./src/index.ts --tsconfig ./tsconfig.build.json --config ../../tsup.config.ts",
     "build:watch": "pnpm build --watch",
     "check:exports": "attw --pack .",
-    "test": "vitest --workspace ../../vitest.workspace.ts run",
-    "test:unit": "vitest --workspace ../../vitest.workspace.ts --project unit run",
-    "test:integration": "vitest --workspace ../../vitest.workspace.ts --project integration run"
+    "test": "vitest -c ../../vitest.config.ts run",
+    "test:unit": "vitest -c ../../vitest.config.ts --project unit run",
+    "test:integration": "vitest -c ../../vitest.config.ts --project integration run"
   }
 }

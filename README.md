@@ -5,9 +5,9 @@
 > Pragmatic template for a `TypeScript` monorepo with [`pnpm`](https://pnpm.io), [`turborepo`](https://turborepo.org), and [`vitest`](https://vitest.dev/).
 
 Tested with:
-- **Node.js v20.17.0**
-- **pnpm v9.15.0**
-- **vitest v2.1.8**
+- **Node.js v24.13.0**
+- **pnpm v10.28.2**
+- **vitest v4.0.18**
 
 ---------------------------------------------
 
@@ -27,7 +27,7 @@ Tested with:
 - `tsup` bundler, whose configuration is stored in [`tsup.config.ts`](./tsup.config.ts).
 - `turborepo`, whose configuration is stored in [`turbo.json`](./turbo.json)
 - an example [`Dockerfile`](./Dockerfile.pnpm) that can be built and used as a base image for your Node.js Docker containers.
-- the `vitest` test engine, whose configuration is stored in [`vitest.workspace.ts`](./vitest.workspace.ts).
+- the `vitest` test engine, whose configuration is stored in [`vitest.config.ts`](./vitest.config.ts).
 - opinionated linting setups via [`biome`](https://biomejs.dev/), whose configuration is defined in the [`biome.jsonc`](./biome.jsonc) file.
 
 ## Available Scripts
