@@ -19,9 +19,13 @@
     "test": "pnpm -r --if-present test",
     "test:unit": "pnpm -r --if-present test:unit",
     "test:integration": "pnpm -r --if-present test:integration",
+    "changeset": "changeset",
+    "version-packages": "changeset version && pnpm install",
+    "release": "pnpm build && pnpm -r --filter='!@jkomyno/example' exec -- npx npm@11 publish --no-git-checks",
     "prepare": "is-ci || husky"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.10",
     "@arethetypeswrong/cli": "^0.18.2",
     "@biomejs/biome": "^2.3.13",
     "@types/node": "25.1.0",

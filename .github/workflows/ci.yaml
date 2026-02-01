@@ -43,14 +43,18 @@ jobs:
       - name: "💽️ Setup (Node.js)"
         uses: ./.github/actions/setup-node
 
-      - name: "🏗️ Build: Transpile TS to JS"
+      - name: "🏗️ Build"
+        run: pnpm build
+
+      - name: "🔍 Check exports"
         run: pnpm check:exports
 
-      - name: "🧪 Verify build"
-        run: pnpm check:exports
-
-      - name: "🚨️ Lint code"
+      - name: "🚨 Lint code"
         run: pnpm lint:ci
 
       - name: "🧳 Run unit tests"
         run: pnpm test:unit
+
+      - name: "📦 pkg.pr.new (preview release)"
+        if: github.event_name == 'pull_request'
+        run: pnpm dlx pkg-pr-new publish './packages/*' --packageManager=pnpm

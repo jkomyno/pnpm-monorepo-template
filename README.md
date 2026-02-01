@@ -15,6 +15,7 @@ Tested with:
 
 - [What's Included](#whats-included)
 - [Available Scripts](#available-scripts)
+- [Publishing (OIDC)](#publishing-oidc)
 - [Test Structure](#test-structure)
 - [FAQ](#faq)
 - [Author](#-author)
@@ -29,6 +30,8 @@ Tested with:
 - an example [`Dockerfile`](./Dockerfile.pnpm) that can be built and used as a base image for your Node.js Docker containers.
 - the `vitest` test engine, whose configuration is stored in [`vitest.config.ts`](./vitest.config.ts).
 - opinionated linting setups via [`biome`](https://biomejs.dev/), whose configuration is defined in the [`biome.jsonc`](./biome.jsonc) file.
+- [**Changesets**](https://github.com/changesets/changesets) for versioning and changelogs; the **Release** workflow opens a "Version Packages" PR when changesets land on `main`, and publishes to npm when that PR is merged using [npm trusted publishing (OIDC)](https://docs.npmjs.com/trusted-publishers)—no long-lived tokens. See [Publishing (OIDC)](#publishing-oidc) below.
+- [**pkg.pr.new**](https://pkg.pr.new) for continuous preview releases: each PR gets installable preview packages (install the [GitHub App](https://github.com/apps/pkg-pr-new) on the repo first).
 
 ## Available Scripts
 
@@ -41,6 +44,22 @@ Tested with:
 - `pnpm test:unit`: run unit tests.
 - `pnpm test:integration`: run integration tests.
 - `pnpm test`: run all tests.
+- `pnpm changeset`: add a new changeset (version bump + changelog entry).
+- `pnpm version-packages`: apply changesets (bump versions, update changelogs, then `pnpm install`). Used by the Release workflow.
+
+## Publishing (OIDC)
+
+Releases use [npm trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC), so you **do not** need an `NPM_TOKEN` secret. You configure npm to trust this repo’s workflow once per package:
+
+1. **Publish the package manually once** (if it has never been published), so it exists on npm.
+2. On [npmjs.com](https://www.npmjs.com), open the package → **Package settings** → **Trusted Publisher**.
+3. Choose **GitHub Actions** and set:
+   - **Organization or user**: your GitHub org or username (e.g. `jkomyno`)
+   - **Repository**: this repo name (e.g. `pnpm-monorepo-template`)
+   - **Workflow filename**: `release.yaml` (must match exactly, including extension)
+4. Save. Future publishes from the **Release** workflow will use OIDC; no tokens required.
+
+Repeat for each publishable package in the monorepo. Optional: under **Publishing access**, enable “Require two-factor authentication and disallow tokens” so only the trusted workflow can publish.
 
 ## Test Structure
 
