@@ -36,14 +36,18 @@ Tested with:
 ## Available Scripts
 
 - `pnpm install`: install the dependencies needed for each package.
-- `pnpm build`: transpile the local TypeScript packages to JavaScript.
+- `pnpm build`: typecheck and transpile the local TypeScript packages to JavaScript.
 - `pnpm build:watch`: transpile the local TypeScript packages to JavaScript, and watch for changes.
 - `pnpm check:exports`: check that the `exports` field in the `package.json` files of each exported package is correctly set, using [`@arethetypeswrong/cli`](https://www.npmjs.com/package/@arethetypeswrong/cli).
+- `pnpm typecheck`: run type checks for packages that define a `typecheck` script.
 - `pnpm lint:ci`: check that the code follows the `biome` guidelines.
 - `pnpm lint`: check that the code follows the `biome` guidelines, and override it to follow them if possible.
+- `pnpm lint:fix`: same as `pnpm lint`; included as a clearer alias.
 - `pnpm test:unit`: run unit tests.
 - `pnpm test:integration`: run integration tests.
 - `pnpm test`: run all tests.
+- `pnpm bench`: run benchmarks for packages that define a `bench` script.
+- `pnpm bench:watch`: run benchmarks in watch mode for packages that define `bench:watch`.
 - `pnpm changeset`: add a new changeset (version bump + changelog entry).
 - `pnpm version-packages`: apply changesets (bump versions, update changelogs, then `pnpm install`). Used by the Release workflow.
 

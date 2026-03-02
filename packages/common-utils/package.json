@@ -39,6 +39,7 @@
     "build": "tsdown --config-loader unrun",
     "build:watch": "tsdown --config-loader unrun --watch",
     "check:exports": "attw --pack .",
+    "typecheck": "tsc --noEmit -p tsconfig.build.json",
     "test": "vitest run",
     "test:unit": "vitest --project unit run",
     "test:integration": "vitest --project integration run"
