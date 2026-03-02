@@ -49,8 +49,6 @@
   "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "javascript": {
     "globals": [
-      "React",
-
       // We need to manually list every test global variable.
       // See: https://github.com/biomejs/biome/discussions/283.
       "describe",
