@@ -21,7 +21,7 @@
     "test:integration": "pnpm -r --if-present test:integration",
     "changeset": "changeset",
     "version-packages": "changeset version && pnpm install",
-    "release": "pnpm build && pnpm -r --filter='!@jkomyno/example' exec -- npx npm@11 publish --no-git-checks",
+    "release": "pnpm build && pnpm -r --filter='!@jkomyno/example' exec -- npx npm@11 publish --no-git-checks --provenance",
     "prepare": "is-ci || husky"
   },
   "devDependencies": {
