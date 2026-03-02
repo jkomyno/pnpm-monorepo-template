@@ -57,4 +57,4 @@ jobs:
 
       - name: "📦 pkg.pr.new (preview release)"
         if: github.event_name == 'pull_request'
-        run: pnpm dlx pkg-pr-new publish './packages/*' --packageManager=pnpm
+        run: pnpm dlx pkg-pr-new@0.0.65 publish './packages/*' --packageManager=pnpm
