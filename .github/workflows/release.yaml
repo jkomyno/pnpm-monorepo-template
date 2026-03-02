@@ -1,9 +1,9 @@
 name: "  📦 Release"
 
 on:
-  # TEMPORARY: disable automatic releases from `main` while release job is failing.
-  # Failing run: https://github.com/jkomyno/pnpm-monorepo-template/actions/runs/22579909965/job/65408836829#step:5:139
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -17,6 +17,10 @@ env:
 
 jobs:
   release:
+    # Disabled by default in this template.
+    # To enable: set up npm trusted publishing (OIDC), remove this guard,
+    # and uncomment the Changesets step below.
+    if: false
     name: Version & Publish
     runs-on: ubuntu-latest
     steps:
@@ -30,13 +34,13 @@ jobs:
       - name: "💽 Setup (Node.js)"
         uses: ./.github/actions/setup-node
 
-      - name: "📦 Create Release PR or Publish"
-        id: changesets
-        uses: changesets/action@e87c8ed249971350e47fab7515075f44eb134e5b # v1.7.0
-        with:
-          version: pnpm version-packages
-          publish: pnpm release
-          commit: "chore: version packages"
-          title: "chore: version packages"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: "📦 Create Release PR or Publish"
+      #   id: changesets
+      #   uses: changesets/action@e87c8ed249971350e47fab7515075f44eb134e5b # v1.7.0
+      #   with:
+      #     version: pnpm version-packages
+      #     publish: pnpm release
+      #     commit: "chore: version packages"
+      #     title: "chore: version packages"
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -55,6 +55,8 @@ Tested with:
 
 Releases use [npm trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC), so you **do not** need an `NPM_TOKEN` secret. You configure npm to trust this repo's workflow once per package:
 
+> Template note: the release workflow is scaffolded but disabled by default in [`release.yaml`](./.github/workflows/release.yaml). After you configure npm trusted publishing (OIDC), remove `if: false` and uncomment the Changesets step in that file.
+
 1. **Publish the package manually once** (if it has never been published), so it exists on npm.
 2. On [npmjs.com](https://www.npmjs.com), open the package → **Package settings** → **Trusted Publisher**.
 3. Choose **GitHub Actions** and set:
