@@ -11,6 +11,11 @@
     "app#watch": {
       "dependsOn": ["^build"]
     },
+    "typecheck": {
+      "dependsOn": ["^typecheck"]
+    },
+    "bench": {},
+    "bench:watch": {},
     "clean": {
       "cache": false,
       "outputs": ["packages/*/build"]
