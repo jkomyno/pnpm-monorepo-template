@@ -1,9 +1,9 @@
 name: "  📦 Release"
 
 on:
-  push:
-    branches:
-      - main
+  # TEMPORARY: disable automatic releases from `main` while release job is failing.
+  # Failing run: https://github.com/jkomyno/pnpm-monorepo-template/actions/runs/22579909965/job/65408836829#step:5:139
+  workflow_dispatch:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
