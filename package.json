@@ -45,7 +45,7 @@
     "tsx": "^4.21.0",
     "turbo": "^2.8.0",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.7"
   },
   "pre-commit": "lint-staged",
   "lint-staged": {
