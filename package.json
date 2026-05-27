@@ -15,9 +15,11 @@
     "check:exports": "turbo run check:exports",
     "typecheck": "turbo run typecheck",
     "clean": "turbo run clean",
-    "lint:ci": "biome ci",
-    "lint": "biome check --fix --unsafe",
-    "lint:fix": "biome check --fix --unsafe",
+    "format:ci": "oxfmt . --check",
+    "format": "oxfmt .",
+    "lint:ci": "pnpm format:ci && oxlint .",
+    "lint": "pnpm format && oxlint . --fix --fix-dangerously",
+    "lint:fix": "pnpm lint",
     "test": "pnpm -r --if-present test",
     "test:unit": "pnpm -r --if-present test:unit",
     "test:integration": "pnpm -r --if-present test:integration",
@@ -29,13 +31,14 @@
     "prepare": "is-ci || husky"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.10",
     "@arethetypeswrong/cli": "^0.18.2",
-    "@biomejs/biome": "^2.3.13",
+    "@changesets/cli": "^2.27.10",
     "@types/node": "25.1.0",
     "husky": "^9.1.7",
     "is-ci": "^4.1.0",
     "lint-staged": "^16.2.7",
+    "oxfmt": "^0.52.0",
+    "oxlint": "^1.67.0",
     "publint": "^0.3.16",
     "rimraf": "^6.1.2",
     "tsdown": "^0.18.4",
@@ -46,7 +49,8 @@
   },
   "pre-commit": "lint-staged",
   "lint-staged": {
-    "*.{js,ts,cjs,mjs,md,json,jsonc}": "biome ci --no-errors-on-unmatched"
+    "*.{js,jsx,ts,tsx,cjs,mjs,cts,mts,json,jsonc,md,yml,yaml}": "oxfmt --check --no-error-on-unmatched-pattern",
+    "*.{js,jsx,ts,tsx,cjs,mjs,cts,mts}": "oxlint --no-error-on-unmatched-pattern"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

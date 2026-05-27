@@ -1,4 +1,4 @@
-name: "  ▶️  CI Workflow"
+name: '  ▶️  CI Workflow'
 
 on:
   push:
@@ -6,9 +6,9 @@ on:
       - main
   pull_request:
     paths-ignore:
-      - ".vscode/**"
-      - "LICENSE"
-      - "README.md"
+      - '.vscode/**'
+      - 'LICENSE'
+      - 'README.md'
   workflow_dispatch:
 
 concurrency:
@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  CI: "true"
+  CI: 'true'
 
 permissions:
   contents: read
@@ -30,7 +30,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
 
-    name: "Build: ${{ matrix.os }}"
+    name: 'Build: ${{ matrix.os }}'
 
     steps:
       - name: Prepare git
@@ -40,21 +40,21 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: "💽️ Setup (Node.js)"
+      - name: '💽️ Setup (Node.js)'
         uses: ./.github/actions/setup-node
 
-      - name: "🏗️ Build"
+      - name: '🏗️ Build'
         run: pnpm build
 
-      - name: "🔍 Check exports"
+      - name: '🔍 Check exports'
         run: pnpm check:exports
 
-      - name: "🚨 Lint code"
+      - name: '🚨 Lint code'
         run: pnpm lint:ci
 
-      - name: "🧳 Run unit tests"
+      - name: '🧳 Run unit tests'
         run: pnpm test:unit
 
-      - name: "📦 pkg.pr.new (preview release)"
+      - name: '📦 pkg.pr.new (preview release)'
         if: github.event_name == 'pull_request'
         run: pnpm dlx pkg-pr-new@0.0.65 publish './packages/*' --packageManager=pnpm

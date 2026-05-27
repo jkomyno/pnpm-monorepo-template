@@ -8,6 +8,6 @@
     "moduleResolution": "Bundler",
 
     // Include test-specific types.
-    "types": ["vitest/globals"],
-  },
+    "types": ["vitest/globals"]
+  }
 }

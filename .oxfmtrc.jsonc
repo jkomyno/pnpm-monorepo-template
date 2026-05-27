@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 120,
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": true,
+  "semi": false,
+  "sortPackageJson": false,
+  "ignorePatterns": ["**/node_modules", "**/build", "**/dist", "**/.turbo", "public"],
+  "overrides": [
+    {
+      "files": ["**/tsconfig.*.json"],
+      "options": {
+        "trailingComma": "all",
+      },
+    },
+    {
+      "files": ["turbo.json"],
+      "options": {
+        "trailingComma": "none",
+      },
+    },
+  ],
+}
