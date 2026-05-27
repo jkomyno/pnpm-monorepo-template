@@ -3,12 +3,12 @@
   "plugins": ["typescript", "unicorn", "oxc", "vitest"],
   "env": {
     "node": true,
-    "vitest": true
+    "vitest": true,
   },
   "ignorePatterns": ["**/node_modules", "**/build", "**/dist", "**/.turbo", "public"],
   "categories": {
     "correctness": "error",
-    "suspicious": "error"
+    "suspicious": "error",
   },
   "rules": {
     "constructor-super": "error",
@@ -64,6 +64,6 @@
     "typescript/no-non-null-assertion": "off",
     "unicorn/no-static-only-class": "off",
     "use-isnan": "error",
-    "valid-typeof": "error"
-  }
+    "valid-typeof": "error",
+  },
 }

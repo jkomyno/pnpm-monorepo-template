@@ -5,6 +5,6 @@
     "lib": ["ES2022"],
     "module": "ESNext",
     "target": "ES2022",
-    "moduleResolution": "Bundler",
-  },
+    "moduleResolution": "Bundler"
+  }
 }

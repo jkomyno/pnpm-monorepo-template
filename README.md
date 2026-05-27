@@ -5,11 +5,12 @@
 > Pragmatic template for a `TypeScript` monorepo with [`pnpm`](https://pnpm.io), [`turborepo`](https://turborepo.org), and [`vitest`](https://vitest.dev/).
 
 Tested with:
+
 - **Node.js v24.13.0**
 - **pnpm v10.28.2**
 - **vitest v4.0.18**
 
----------------------------------------------
+---
 
 ## Table of Contents
 
@@ -29,7 +30,7 @@ Tested with:
 - `turborepo`, whose configuration is stored in [`turbo.json`](./turbo.json)
 - an example [`Dockerfile`](./Dockerfile.pnpm) that can be built and used as a base image for your Node.js Docker containers.
 - the `vitest` test engine, whose configuration is stored in [`vitest.config.ts`](./vitest.config.ts).
-- opinionated linting setups via [`oxlint`](https://oxc.rs/docs/guide/usage/linter.html), whose configuration is defined in the [`.oxlintrc.jsonc`](./.oxlintrc.jsonc) file.
+- opinionated formatting and linting setups via [`oxfmt`](https://oxc.rs/docs/guide/usage/formatter.html) and [`oxlint`](https://oxc.rs/docs/guide/usage/linter.html), whose configurations are defined in the [`.oxfmtrc.jsonc`](./.oxfmtrc.jsonc) and [`.oxlintrc.jsonc`](./.oxlintrc.jsonc) files.
 - [**Changesets**](https://github.com/changesets/changesets) for versioning and changelogs; the **Release** workflow opens a "Version Packages" PR when changesets land on `main`, and publishes to npm when that PR is merged using [npm trusted publishing (OIDC)](https://docs.npmjs.com/trusted-publishers)—no long-lived tokens. See [Publishing (OIDC)](#publishing-oidc) below.
 - [**pkg.pr.new**](https://pkg.pr.new) for continuous preview releases: each PR gets installable preview packages (install the [GitHub App](https://github.com/apps/pkg-pr-new) on the repo first).
 
@@ -40,8 +41,10 @@ Tested with:
 - `pnpm build:watch`: transpile the local TypeScript packages to JavaScript, and watch for changes.
 - `pnpm check:exports`: check that the `exports` field in the `package.json` files of each exported package is correctly set, using [`@arethetypeswrong/cli`](https://www.npmjs.com/package/@arethetypeswrong/cli).
 - `pnpm typecheck`: run type checks for packages that define a `typecheck` script.
-- `pnpm lint:ci`: check that the code follows the `oxlint` guidelines.
-- `pnpm lint`: check that the code follows the `oxlint` guidelines, and override it to follow them if possible.
+- `pnpm format:ci`: check that the code follows the `oxfmt` guidelines.
+- `pnpm format`: check that the code follows the `oxfmt` guidelines, and override it to follow them if possible.
+- `pnpm lint:ci`: check that the code follows the `oxfmt` and `oxlint` guidelines.
+- `pnpm lint`: check that the code follows the `oxfmt` and `oxlint` guidelines, and override it to follow them if possible.
 - `pnpm lint:fix`: same as `pnpm lint`; included as a clearer alias.
 - `pnpm test:unit`: run unit tests.
 - `pnpm test:integration`: run integration tests.
@@ -78,7 +81,7 @@ This allows for easily running groups of tests (for instance, you might want to 
 
 1. How do I add a new package to the local workspace?
 
-- Create a new folder `$packageName` in [`packages/`](packages/). Initialize it with a `tsconfig.json` file (which will reference the [`tsconfig.base.node.json`](./tsconfig.base.node.json) file at the root level) and a `package.json` file similarly to how it's done in the  [`common-utils`](packages/common-utils) package.
+- Create a new folder `$packageName` in [`packages/`](packages/). Initialize it with a `tsconfig.json` file (which will reference the [`tsconfig.base.node.json`](./tsconfig.base.node.json) file at the root level) and a `package.json` file similarly to how it's done in the [`common-utils`](packages/common-utils) package.
 
 2. How do I add a new dependency that should be available to each package in the local workspace?
 

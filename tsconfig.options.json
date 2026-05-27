@@ -36,6 +36,6 @@
     "forceConsistentCasingInFileNames": true,
     "removeComments": true,
     "resolveJsonModule": true,
-    "verbatimModuleSyntax": true,
-  },
+    "verbatimModuleSyntax": true
+  }
 }

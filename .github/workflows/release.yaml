@@ -1,4 +1,4 @@
-name: "  📦 Release"
+name: '  📦 Release'
 
 on:
   push:
@@ -10,10 +10,10 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 permissions:
   contents: write
   pull-requests: write
-  id-token: write  # Required for npm trusted publishing (OIDC)
+  id-token: write # Required for npm trusted publishing (OIDC)
 
 env:
-  CI: "true"
+  CI: 'true'
 
 jobs:
   release:
@@ -31,7 +31,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: "💽 Setup (Node.js)"
+      - name: '💽 Setup (Node.js)'
         uses: ./.github/actions/setup-node
 
       # - name: "📦 Create Release PR or Publish"
