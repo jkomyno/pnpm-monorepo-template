@@ -14,6 +14,7 @@ Tested with:
 
 ## Table of Contents
 
+- [Getting Started](#getting-started)
 - [What's Included](#whats-included)
 - [Available Scripts](#available-scripts)
 - [Publishing (OIDC)](#publishing-oidc)
@@ -22,6 +23,62 @@ Tested with:
 - [Author](#-author)
 - [Show your support](#-show-your-support)
 - [License](#-license)
+
+## Getting Started
+
+Use this repository as a template when you want a fresh `TypeScript` monorepo with `pnpm`, `turborepo`, `vitest`, `oxfmt`, `oxlint`, Changesets, and GitHub Actions already wired together.
+
+There are two common ways to create your own repository from it.
+
+### Create a Repository from GitHub
+
+1. Open [`jkomyno/pnpm-monorepo-template`](https://github.com/jkomyno/pnpm-monorepo-template).
+2. Click **Use this template**.
+3. Choose **Create a new repository**.
+4. Pick the owner, repository name, visibility, and whether you want to include all branches.
+5. Click **Create repository**.
+6. Clone your new repository:
+
+```bash
+git clone git@github.com:<your-github-user-or-org>/<your-new-repo>.git
+cd <your-new-repo>
+```
+
+### Create a Repository with `gh`
+
+If you prefer the GitHub CLI, create and clone the new repository in one command:
+
+```bash
+gh repo create <your-github-user-or-org>/<your-new-repo> \
+  --template jkomyno/pnpm-monorepo-template \
+  --private \
+  --clone
+
+cd <your-new-repo>
+```
+
+Use `--public` instead of `--private` if the repository should be public.
+
+### Set Up the Project Locally
+
+This template is pinned to `pnpm@11.3.0` through the `packageManager` field in [`package.json`](./package.json). The easiest way to get the right `pnpm` version is through Corepack, which ships with modern Node.js versions.
+
+```bash
+corepack enable
+corepack prepare pnpm@11.3.0 --activate
+pnpm install
+pnpm build
+pnpm test
+```
+
+After that, make the template yours:
+
+1. Replace the `@jkomyno/*` package scope in the local `package.json` files with your own npm scope.
+2. Update the root package `name`, `description`, and `repository` fields in [`package.json`](./package.json).
+3. Update README badges and links so they point to your new GitHub repository.
+4. Remove, rename, or replace the example packages in [`packages/`](packages/) once you know what your monorepo should contain.
+
+At this point the repository is ready for normal development. Use `pnpm build`, `pnpm test`, `pnpm lint:ci`, and `pnpm changeset` as the main day-to-day commands.
 
 ## What's Included
 
