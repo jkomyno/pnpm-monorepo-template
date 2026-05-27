@@ -34,8 +34,8 @@
   },
   "scripts": {
     "clean": "rimraf build .turbo",
-    "build": "tsdown --config-loader unrun",
-    "build:watch": "tsdown --config-loader unrun --watch",
+    "build": "tsdown",
+    "build:watch": "tsdown --watch",
     "check:exports": "attw --pack .",
     "typecheck": "tsc --noEmit -p tsconfig.build.json",
     "test": "vitest run",
