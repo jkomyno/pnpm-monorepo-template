@@ -12,10 +12,10 @@ catalog:
   oxlint: 1.66.0
   publint: ^0.3.16
   rimraf: ^6.1.2
-  tsdown: ^0.18.4
+  tsdown: ^0.22.0
   tsx: ^4.21.0
   turbo: ^2.9.14
-  typescript: ^5.9.3
+  typescript: ^6.0.3
   vite: ^7.3.2
   vitest: ^4.1.7
 
