@@ -29,7 +29,7 @@ Tested with:
 - `turborepo`, whose configuration is stored in [`turbo.json`](./turbo.json)
 - an example [`Dockerfile`](./Dockerfile.pnpm) that can be built and used as a base image for your Node.js Docker containers.
 - the `vitest` test engine, whose configuration is stored in [`vitest.config.ts`](./vitest.config.ts).
-- opinionated linting setups via [`biome`](https://biomejs.dev/), whose configuration is defined in the [`biome.jsonc`](./biome.jsonc) file.
+- opinionated linting setups via [`oxlint`](https://oxc.rs/docs/guide/usage/linter.html), whose configuration is defined in the [`.oxlintrc.jsonc`](./.oxlintrc.jsonc) file.
 - [**Changesets**](https://github.com/changesets/changesets) for versioning and changelogs; the **Release** workflow opens a "Version Packages" PR when changesets land on `main`, and publishes to npm when that PR is merged using [npm trusted publishing (OIDC)](https://docs.npmjs.com/trusted-publishers)—no long-lived tokens. See [Publishing (OIDC)](#publishing-oidc) below.
 - [**pkg.pr.new**](https://pkg.pr.new) for continuous preview releases: each PR gets installable preview packages (install the [GitHub App](https://github.com/apps/pkg-pr-new) on the repo first).
 
@@ -40,8 +40,8 @@ Tested with:
 - `pnpm build:watch`: transpile the local TypeScript packages to JavaScript, and watch for changes.
 - `pnpm check:exports`: check that the `exports` field in the `package.json` files of each exported package is correctly set, using [`@arethetypeswrong/cli`](https://www.npmjs.com/package/@arethetypeswrong/cli).
 - `pnpm typecheck`: run type checks for packages that define a `typecheck` script.
-- `pnpm lint:ci`: check that the code follows the `biome` guidelines.
-- `pnpm lint`: check that the code follows the `biome` guidelines, and override it to follow them if possible.
+- `pnpm lint:ci`: check that the code follows the `oxlint` guidelines.
+- `pnpm lint`: check that the code follows the `oxlint` guidelines, and override it to follow them if possible.
 - `pnpm lint:fix`: same as `pnpm lint`; included as a clearer alias.
 - `pnpm test:unit`: run unit tests.
 - `pnpm test:integration`: run integration tests.
