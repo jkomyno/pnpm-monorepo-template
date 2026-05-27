@@ -1,5 +1,33 @@
 packages:
   - 'packages/*'
+
+catalog:
+  '@arethetypeswrong/cli': ^0.18.2
+  '@changesets/cli': ^2.27.10
+  '@types/node': 25.1.0
+  husky: ^9.1.7
+  is-ci: ^4.1.0
+  lint-staged: ^16.2.7
+  oxfmt: 0.51.0
+  oxlint: 1.66.0
+  publint: ^0.3.16
+  rimraf: ^6.1.2
+  tsdown: ^0.18.4
+  tsx: ^4.21.0
+  turbo: ^2.9.14
+  typescript: ^5.9.3
+  vite: ^7.3.2
+  vitest: ^4.1.7
+
+minimumReleaseAge: 4320
+
+overrides:
+  '@isaacs/brace-expansion': ^5.0.1
+  defu: ^6.1.5
+  minimatch: ^10.2.3
+  picomatch: ^4.0.4
+  yaml: ^2.8.3
+
 allowBuilds:
   esbuild: true
 enablePrePostScripts: true
