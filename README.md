@@ -7,7 +7,7 @@
 Tested with:
 
 - **Node.js v24.13.0**
-- **pnpm v10.28.2**
+- **pnpm v11.3.0**
 - **vitest v4.0.18**
 
 ---
