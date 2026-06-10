@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url'
 import { defaultServerConditions } from 'vite'
 import { defineConfig } from 'vitest/config'
 
@@ -25,6 +26,15 @@ export const baseTestConfig = {
 export const baseResolveConfig = {
   conditions: ['@jkomyno/source', ...defaultServerConditions],
 } as const
+
+/**
+ * Map `src/...` import specifiers to the package's own `src/` directory, mirroring the
+ * `paths` mapping in the shared tsconfig, so tests avoid long relative imports.
+ * Pass the package vitest config's `import.meta.url`.
+ */
+export const srcAlias = (configUrl: string): { src: string } => ({
+  src: fileURLToPath(new URL('./src', configUrl)),
+})
 
 export default defineConfig({
   ssr: { resolve: baseResolveConfig },

@@ -1,4 +1,4 @@
-import { sum } from '../../src'
+import { sum } from 'src'
 
 describe('sum', () => {
   it('sum([]) = 0', () => {
