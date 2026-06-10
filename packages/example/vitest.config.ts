@@ -1,10 +1,11 @@
 import { defineConfig } from 'vitest/config'
-import { baseTestConfig } from '../../vitest.config.base'
+import { baseResolveConfig, baseTestConfig } from '../../vitest.config.base'
 
 export default defineConfig({
   test: {
     projects: [
       {
+        ssr: { resolve: baseResolveConfig },
         test: {
           ...baseTestConfig,
           name: 'unit',
