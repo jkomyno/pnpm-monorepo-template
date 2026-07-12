@@ -1,0 +1,42 @@
+name: 'Setup (mise)'
+description: 'Setup Node.js and pnpm through mise'
+
+runs:
+  # Read about composite actions in:
+  # https://docs.github.com/en/actions/sharing-automations/avoiding-duplication.
+  #
+  # Composite actions cannot use secrets, and are logged as a single step.
+  using: 'composite'
+  steps:
+    - name: '🧰 Install tools'
+      uses: jdx/mise-action@dba19683ed58901619b14f395a24841710cb4925 # v4.1.0
+      with:
+        version: 2026.6.3
+
+    - name: 🔺️ Cache (turbo)
+      uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      with:
+        path: .turbo
+        key: ${{ runner.os }}-turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+          ${{ runner.os }}-turbo-${{ github.job }}-${{ github.ref_name }}
+          ${{ runner.os }}-turbo-${{ github.job }}
+          ${{ runner.os }}-turbo
+
+    - name: '📦 Resolve pnpm store'
+      id: pnpm-store
+      shell: bash
+      run: echo "path=$(pnpm store path --silent)" >> "$GITHUB_OUTPUT"
+
+    - name: '📦 Cache (pnpm)'
+      uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      with:
+        path: ${{ steps.pnpm-store.outputs.path }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+
+    - name: '📦️ Install Dependencies'
+      shell: bash
+      run: pnpm install --frozen-lockfile

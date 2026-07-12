@@ -31,8 +31,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: '💽 Setup (Node.js)'
-        uses: ./.github/actions/setup-node
+      - name: '🧰 Setup (mise)'
+        uses: ./.github/actions/setup-mise
 
       # - name: "📦 Create Release PR or Publish"
       #   id: changesets

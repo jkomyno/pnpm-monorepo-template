@@ -61,15 +61,17 @@ Use `--public` instead of `--private` if the repository should be public.
 
 ### Set Up the Project Locally
 
-This template is pinned to `pnpm@11.3.0` through the `packageManager` field in [`package.json`](./package.json). The easiest way to get the right `pnpm` version is through Corepack, which ships with modern Node.js versions.
+This template pins Node.js and pnpm in [`.mise.toml`](./.mise.toml). Install [mise](https://mise.jdx.dev/getting-started.html), then let it provision the repository toolchain:
 
 ```bash
-corepack enable
-corepack prepare pnpm@11.3.0 --activate
+mise trust
+mise install
 pnpm install
 pnpm build
 pnpm test
 ```
+
+Use mise as the source of truth when changing tool versions. The `packageManager` field in [`package.json`](./package.json) mirrors the pnpm pin for compatibility with package-manager-aware tooling.
 
 After that, make the template yours:
 
