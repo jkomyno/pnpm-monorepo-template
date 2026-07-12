@@ -1,3 +1,9 @@
+min_version = "2026.1.0"
+
 [tools]
-pnpm = "11.3.0"
+"npm:pnpm" = "11.3.0"
 node = "24.13.0"
+
+[settings]
+lockfile = true
+locked = true

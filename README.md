@@ -71,7 +71,7 @@ pnpm build
 pnpm test
 ```
 
-Use mise as the source of truth when changing tool versions. The `packageManager` field in [`package.json`](./package.json) mirrors the pnpm pin for compatibility with package-manager-aware tooling.
+Use mise as the source of truth when changing tool versions, and run `mise lock` after an update to refresh the locked tool artifacts. The `packageManager` field in [`package.json`](./package.json) mirrors the pnpm pin for compatibility with package-manager-aware tooling.
 
 After that, make the template yours:
 
