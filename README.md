@@ -4,11 +4,7 @@
 
 > Pragmatic template for a `TypeScript` monorepo with [`pnpm`](https://pnpm.io), [`turborepo`](https://turborepo.org), and [`vitest`](https://vitest.dev/).
 
-Tested with:
-
-- **Node.js v24.13.0**
-- **pnpm v11.3.0**
-- **vitest v4.1.7**
+The development toolchain is pinned in [`.mise.toml`](./.mise.toml), with tool artifacts locked in [`mise.lock`](./mise.lock).
 
 ---
 

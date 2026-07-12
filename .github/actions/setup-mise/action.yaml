@@ -13,6 +13,16 @@ runs:
       with:
         version: 2026.6.3
 
+    - name: '🔎 Verify package manager metadata'
+      shell: bash
+      run: |
+        expected="pnpm@$(pnpm --version)"
+        actual="$(node --print "require('./package.json').packageManager")"
+        if [[ "$actual" != "$expected" ]]; then
+          echo "package.json packageManager must be $expected, found $actual" >&2
+          exit 1
+        fi
+
     - name: 🔺️ Cache (turbo)
       uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
       with:
