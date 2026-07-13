@@ -12,14 +12,42 @@ catalog:
   oxlint: 1.66.0
   publint: ^0.3.16
   rimraf: ^6.1.2
-  tsdown: ^0.22.0
+  tsdown: ^0.22.7
   tsx: ^4.21.0
   turbo: ^2.9.14
-  typescript: ^6.0.3
+  typescript: ^7.0.2
   vite: ^8.1.4
   vitest: ^4.1.10
 
-minimumReleaseAge: 4320
+minimumReleaseAge: 1440
+# Exact releases required by the TypeScript 7-compatible tsdown toolchain.
+minimumReleaseAgeExclude:
+  - '@yuku-codegen/binding-darwin-arm64@0.6.1'
+  - '@yuku-codegen/binding-darwin-x64@0.6.1'
+  - '@yuku-codegen/binding-freebsd-x64@0.6.1'
+  - '@yuku-codegen/binding-linux-arm-gnu@0.6.1'
+  - '@yuku-codegen/binding-linux-arm-musl@0.6.1'
+  - '@yuku-codegen/binding-linux-arm64-gnu@0.6.1'
+  - '@yuku-codegen/binding-linux-arm64-musl@0.6.1'
+  - '@yuku-codegen/binding-linux-x64-gnu@0.6.1'
+  - '@yuku-codegen/binding-linux-x64-musl@0.6.1'
+  - '@yuku-codegen/binding-win32-arm64@0.6.1'
+  - '@yuku-codegen/binding-win32-x64@0.6.1'
+  - '@yuku-parser/binding-darwin-arm64@0.6.1'
+  - '@yuku-parser/binding-darwin-x64@0.6.1'
+  - '@yuku-parser/binding-freebsd-x64@0.6.1'
+  - '@yuku-parser/binding-linux-arm-gnu@0.6.1'
+  - '@yuku-parser/binding-linux-arm-musl@0.6.1'
+  - '@yuku-parser/binding-linux-arm64-gnu@0.6.1'
+  - '@yuku-parser/binding-linux-arm64-musl@0.6.1'
+  - '@yuku-parser/binding-linux-x64-gnu@0.6.1'
+  - '@yuku-parser/binding-linux-x64-musl@0.6.1'
+  - '@yuku-parser/binding-win32-arm64@0.6.1'
+  - '@yuku-parser/binding-win32-x64@0.6.1'
+  - rolldown-plugin-dts@0.27.8
+  - tsdown@0.22.7
+  - yuku-codegen@0.6.1
+  - yuku-parser@0.6.1
 
 overrides:
   '@isaacs/brace-expansion': ^5.0.1
