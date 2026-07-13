@@ -1,0 +1,4 @@
+interface:
+  display_name: 'TypeScript'
+  short_description: 'Build strict, type-safe TypeScript packages'
+  default_prompt: 'Use $typescript to implement or review this TypeScript change safely.'

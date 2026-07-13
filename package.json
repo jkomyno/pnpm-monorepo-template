@@ -1,9 +1,9 @@
 {
   "private": true,
   "type": "module",
-  "name": "@jkomyno/pnpm-monorepo-example",
-  "description": "Practical example of a `TypeScript` monorepo with `pnpm`, `turborepo`, and `vitest`",
-  "repository": "https://github.com/jkomyno/pnpm-monorepo-example.git",
+  "name": "@jkomyno/pnpm-monorepo-template",
+  "description": "Pragmatic TypeScript monorepo template with pnpm, Turborepo, and Vitest",
+  "repository": "https://github.com/jkomyno/pnpm-monorepo-template.git",
   "author": {
     "name": "Alberto Schiabel",
     "email": "alberto.schiabel@gmail.com"
@@ -27,7 +27,7 @@
     "bench:watch": "turbo run bench:watch",
     "changeset": "changeset",
     "version-packages": "changeset version && pnpm install",
-    "release": "pnpm build && pnpm -r --filter='!@jkomyno/example' exec -- npx npm@11 publish --no-git-checks --provenance",
+    "release": "pnpm build && pnpm -r --filter='!@jkomyno/example' exec -- npm publish --provenance",
     "prepare": "is-ci || husky"
   },
   "devDependencies": {
@@ -42,7 +42,6 @@
     "publint": "catalog:",
     "rimraf": "catalog:",
     "tsdown": "catalog:",
-    "tsx": "catalog:",
     "turbo": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",

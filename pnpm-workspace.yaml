@@ -4,7 +4,7 @@ packages:
 catalog:
   '@arethetypeswrong/cli': ^0.18.2
   '@changesets/cli': ^2.27.10
-  '@types/node': 25.1.0
+  '@types/node': 24.13.3
   husky: ^9.1.7
   is-ci: ^4.1.0
   lint-staged: ^16.2.7
@@ -12,21 +12,23 @@ catalog:
   oxlint: 1.66.0
   publint: ^0.3.16
   rimraf: ^6.1.2
-  tsdown: ^0.22.0
-  tsx: ^4.21.0
+  tsdown: 0.22.5
   turbo: ^2.9.14
-  typescript: ^6.0.3
-  vite: ^7.3.2
-  vitest: ^4.1.7
+  typescript: ^7.0.2
+  vite: ^8.1.4
+  vitest: ^4.1.10
 
-minimumReleaseAge: 4320
+minimumReleaseAge: 1440
 
 overrides:
   '@isaacs/brace-expansion': ^5.0.1
   defu: ^6.1.5
   minimatch: ^10.2.3
   picomatch: ^4.0.4
+  rolldown-plugin-dts: 0.27.6
   yaml: ^2.8.3
+  yuku-codegen: 0.5.48
+  yuku-parser: 0.5.48
 
 allowBuilds:
   esbuild: true
