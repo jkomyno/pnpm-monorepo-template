@@ -16,8 +16,8 @@ catalog:
   tsx: ^4.21.0
   turbo: ^2.9.14
   typescript: ^6.0.3
-  vite: ^7.3.2
-  vitest: ^4.1.7
+  vite: ^8.1.4
+  vitest: ^4.1.10
 
 minimumReleaseAge: 4320
 
