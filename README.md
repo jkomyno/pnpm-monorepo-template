@@ -88,6 +88,7 @@ At this point the repository is ready for normal development. Use `pnpm build`, 
 - opinionated formatting and linting setups via [`oxfmt`](https://oxc.rs/docs/guide/usage/formatter.html) and [`oxlint`](https://oxc.rs/docs/guide/usage/linter.html), whose configurations are defined in the [`.oxfmtrc.jsonc`](./.oxfmtrc.jsonc) and [`.oxlintrc.jsonc`](./.oxlintrc.jsonc) files.
 - [**Changesets**](https://github.com/changesets/changesets) for versioning and changelogs; the **Release** workflow opens a "Version Packages" PR when changesets land on `main`, and publishes to npm when that PR is merged using [npm trusted publishing (OIDC)](https://docs.npmjs.com/trusted-publishers)—no long-lived tokens. See [Publishing (OIDC)](#publishing-oidc) below.
 - [**pkg.pr.new**](https://pkg.pr.new) for continuous preview releases: each PR gets installable preview packages (install the [GitHub App](https://github.com/apps/pkg-pr-new) on the repo first).
+- shared AI-agent guidance through [`AGENTS.md`](./AGENTS.md) and its [`CLAUDE.md`](./CLAUDE.md) symlink, plus repository-local TypeScript and testing skills under [`.agents/skills`](./.agents/skills).
 
 ## Available Scripts
 

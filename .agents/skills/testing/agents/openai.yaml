@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Testing'
+  short_description: 'Write deterministic Vitest test suites'
+  default_prompt: 'Use $testing to add or improve tests for this behavior.'
