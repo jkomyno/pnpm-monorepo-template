@@ -13,7 +13,6 @@ catalog:
   publint: ^0.3.16
   rimraf: ^6.1.2
   tsdown: 0.22.5
-  tsx: ^4.21.0
   turbo: ^2.9.14
   typescript: ^7.0.2
   vite: ^8.1.4
