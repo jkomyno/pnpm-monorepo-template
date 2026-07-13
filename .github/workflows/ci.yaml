@@ -43,6 +43,9 @@ jobs:
       - name: '🧰 Setup (mise)'
         uses: ./.github/actions/setup-mise
 
+      - name: '🔎 Typecheck'
+        run: pnpm typecheck
+
       - name: '🏗️ Build'
         run: pnpm build
 

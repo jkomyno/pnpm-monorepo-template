@@ -7,7 +7,7 @@
     "target": "ESNext",
     "moduleResolution": "Bundler",
 
-    // Include test-specific types.
-    "types": ["vitest/globals"]
+    // Include Node.js and test-specific types.
+    "types": ["node", "vitest/globals"]
   }
 }
