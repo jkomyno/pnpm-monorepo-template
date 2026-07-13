@@ -27,7 +27,7 @@
     "bench:watch": "turbo run bench:watch",
     "changeset": "changeset",
     "version-packages": "changeset version && pnpm install",
-    "release": "pnpm build && pnpm -r --filter='!@jkomyno/example' exec -- npx npm@11 publish --no-git-checks --provenance",
+    "release": "pnpm build && pnpm -r --filter='!@jkomyno/example' exec -- npm publish --provenance",
     "prepare": "is-ci || husky"
   },
   "devDependencies": {
