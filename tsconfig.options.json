@@ -5,6 +5,14 @@
     // Useful to prevent "Go to definition" from navigating to the `build` folder of an imported package from this monorepo.
     // Reference: Chapter 5 of https://colinhacks.com/essays/live-types-typescript-monorepo
     "customConditions": ["@jkomyno/source"],
+    // Map `src/...` import specifiers to each package's own `src/` directory, so tests
+    // avoid long relative imports. `${configDir}` resolves to the directory of the final
+    // extending tsconfig, i.e. the package root. Mirrored at runtime by the `srcAlias`
+    // helper in `vitest.config.base.ts`.
+    "paths": {
+      "src": ["${configDir}/src/index.ts"],
+      "src/*": ["${configDir}/src/*"]
+    },
     // Enable all strict type checking options.
     "strict": true,
     // Enables project references and informs the TypeScript program where to find referenced outputs.

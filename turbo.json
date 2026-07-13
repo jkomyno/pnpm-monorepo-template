@@ -2,7 +2,8 @@
   "$schema": "https://turborepo.org/schema.json",
   "tasks": {
     "build": {
-      "dependsOn": ["^typecheck", "^build", "typecheck"]
+      "dependsOn": ["^typecheck", "^build", "typecheck"],
+      "outputs": ["build/**"]
     },
     "build:watch": {},
     "check:exports": {
@@ -17,8 +18,7 @@
     "bench": {},
     "bench:watch": {},
     "clean": {
-      "cache": false,
-      "outputs": ["packages/*/build"]
+      "cache": false
     }
   }
 }
