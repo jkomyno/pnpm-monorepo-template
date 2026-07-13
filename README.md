@@ -72,15 +72,15 @@ Use mise as the source of truth when changing tool versions, and run `mise lock`
 After that, make the template yours:
 
 1. Replace the `@jkomyno/*` package scope in the local `package.json` files with your own npm scope.
-2. Update the root package `name`, `description`, and `repository` fields in [`package.json`](./package.json).
-3. Update README badges and links so they point to your new GitHub repository.
+2. Update the `name`, `description`, `repository`, `author`, and package visibility fields in the root and package-level `package.json` files.
+3. Update README badges, author details, trusted-publisher examples, and links so they point to your new GitHub repository.
 4. Remove, rename, or replace the example packages in [`packages/`](packages/) once you know what your monorepo should contain.
 
 At this point the repository is ready for normal development. Use `pnpm build`, `pnpm test`, `pnpm lint:ci`, and `pnpm changeset` as the main day-to-day commands.
 
 ## What's Included
 
-- `pnpm` workspace, whose configuration is stored in [`pnpm-workspace.yaml`](/pnpm-workspace.yaml). Two example packages are included, [`common-utils`](packages/common-utils) and [`example`](packages/example), with the latter importing `common-utils` as a dependency. All local packages are decorated with a `@jkomyno/*` scope (you may want to substitute these instances in the `name` entries of any `package.json` with yours or your company's name).
+- `pnpm` workspace, whose configuration is stored in [`pnpm-workspace.yaml`](./pnpm-workspace.yaml). Two example packages are included, [`common-utils`](packages/common-utils) and [`example`](packages/example), with the latter importing `common-utils` as a dependency. All local packages are decorated with a `@jkomyno/*` scope (you may want to substitute these instances in the `name` entries of any `package.json` with yours or your company's name).
 - `tsdown` bundler, whose configuration is stored in [`tsdown.config.base.ts`](./tsdown.config.base.ts).
 - `turborepo`, whose configuration is stored in [`turbo.json`](./turbo.json)
 - centralized dependency versions through the `pnpm` catalog in [`pnpm-workspace.yaml`](./pnpm-workspace.yaml), plus install hardening with release-age gating and targeted transitive dependency overrides.
@@ -137,7 +137,7 @@ This allows for easily running groups of tests (for instance, you might want to 
 
 1. How do I add a new package to the local workspace?
 
-- Create a new folder `$packageName` in [`packages/`](packages/). Initialize it with a `tsconfig.json` file (which will reference the [`tsconfig.base.node.json`](./tsconfig.base.node.json) file at the root level) and a `package.json` file similarly to how it's done in the [`common-utils`](packages/common-utils) package.
+- Create a folder in [`packages/`](packages/) with a `package.json` and `tsconfig.json`. Extend [`tsconfig.src.json`](./tsconfig.src.json) for publishable source builds and [`tsconfig.test.json`](./tsconfig.test.json) for packages that typecheck source and tests together. Use [`common-utils`](packages/common-utils) as the publishable-library example and [`example`](packages/example) as the private-package example.
 
 2. How do I add a new dependency that should be available to each package in the local workspace?
 
@@ -157,4 +157,4 @@ Give a ⭐️ if this project helped or inspired you!
 ## 📝 License
 
 Built with ❤️ by [Alberto Schiabel](https://github.com/jkomyno).<br />
-This project is [MIT](https://github.com/jkomyno/pnpm-monorepo-example/blob/main/LICENSE) licensed.
+This project is [MIT](https://github.com/jkomyno/pnpm-monorepo-template/blob/main/LICENSE) licensed.

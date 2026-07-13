@@ -3,7 +3,11 @@
   "name": "@jkomyno/common-utils",
   "version": "0.1.0",
   "description": "Demo library that contains common utility functions",
-  "repository": "https://github.com/jkomyno/pnpm-monorepo-example.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkomyno/pnpm-monorepo-template.git",
+    "directory": "packages/common-utils"
+  },
   "author": {
     "name": "Alberto Schiabel",
     "email": "alberto.schiabel@gmail.com"

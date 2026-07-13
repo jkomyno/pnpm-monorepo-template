@@ -1,9 +1,9 @@
 {
   "private": true,
   "type": "module",
-  "name": "@jkomyno/pnpm-monorepo-example",
-  "description": "Practical example of a `TypeScript` monorepo with `pnpm`, `turborepo`, and `vitest`",
-  "repository": "https://github.com/jkomyno/pnpm-monorepo-example.git",
+  "name": "@jkomyno/pnpm-monorepo-template",
+  "description": "Pragmatic TypeScript monorepo template with pnpm, Turborepo, and Vitest",
+  "repository": "https://github.com/jkomyno/pnpm-monorepo-template.git",
   "author": {
     "name": "Alberto Schiabel",
     "email": "alberto.schiabel@gmail.com"
