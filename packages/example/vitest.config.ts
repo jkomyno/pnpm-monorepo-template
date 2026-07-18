@@ -9,8 +9,8 @@ export default defineConfig({
         ssr: { resolve: baseResolveConfig },
         test: {
           ...baseTestConfig,
-          name: 'unit',
-          include: ['__tests__/unit/**/*.test.ts'],
+          name: 'integration',
+          include: ['__tests__/integration/**/*.test.ts'],
         },
       },
     ],

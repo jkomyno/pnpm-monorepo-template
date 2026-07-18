@@ -1,13 +1,11 @@
 import { sum } from 'src'
 
 describe('sum', () => {
-  it('sum([]) = 0', () => {
-    expect(sum([])).toBe(0)
-    expect(sum([])).toMatchSnapshot()
-  })
-
-  it('sum([2, 3, 0, 1]) = 6', () => {
-    expect(sum([2, 3, 0, 1])).toEqual(6)
-    expect(sum([])).toMatchSnapshot()
+  it.each([
+    { input: [], expected: 0 },
+    { input: [2, 3, 0, 1], expected: 6 },
+    { input: [2, -3, 1], expected: 0 },
+  ])('returns $expected for $input', ({ input, expected }) => {
+    expect(sum(input)).toBe(expected)
   })
 })

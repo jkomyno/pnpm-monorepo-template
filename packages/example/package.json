@@ -12,7 +12,7 @@
     "clean": "rimraf build .turbo",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "vitest run",
-    "test:unit": "vitest --project unit run"
+    "test:integration": "vitest --project integration run"
   },
   "dependencies": {
     "@jkomyno/common-utils": "workspace:*"
