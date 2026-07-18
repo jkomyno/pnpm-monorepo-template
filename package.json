@@ -27,15 +27,13 @@
     "bench:watch": "turbo run bench:watch",
     "changeset": "changeset",
     "version-packages": "changeset version && pnpm install",
-    "release": "pnpm build && pnpm -r --filter='!@jkomyno/example' exec -- npm publish --provenance",
-    "prepare": "is-ci || husky"
+    "release": "pnpm build && pnpm -r --filter='!@jkomyno/example' exec -- npm publish --provenance"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "catalog:",
     "@changesets/cli": "catalog:",
     "@types/node": "catalog:",
-    "husky": "catalog:",
-    "is-ci": "catalog:",
+    "lefthook": "catalog:",
     "lint-staged": "catalog:",
     "oxfmt": "catalog:",
     "oxlint": "catalog:",
@@ -47,7 +45,6 @@
     "vite": "catalog:",
     "vitest": "catalog:"
   },
-  "pre-commit": "lint-staged",
   "lint-staged": {
     "*.{js,jsx,ts,tsx,cjs,mjs,cts,mts,json,jsonc,md,yml,yaml}": "oxfmt --check --no-error-on-unmatched-pattern",
     "*.{js,jsx,ts,tsx,cjs,mjs,cts,mts}": "oxlint --no-error-on-unmatched-pattern"
