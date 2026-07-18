@@ -7,7 +7,7 @@
     },
     "build:watch": {},
     "check:exports": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["build"]
     },
     "app#watch": {
       "dependsOn": ["^build"]
