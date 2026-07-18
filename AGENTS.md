@@ -23,6 +23,7 @@ This repository is a pragmatic TypeScript monorepo template built around pnpm wo
 - Treat `.mise.toml` as the source of truth for Node.js and pnpm versions. Keep the root `packageManager` version aligned with it.
 - Use pnpm for dependency and workspace commands. Reuse existing root and package scripts before inventing ad hoc commands.
 - Keep shared configuration at the repository root and package-specific configuration beside the owning package.
+- Keep the pre-commit hook in `lefthook.yml` and its staged-file checks in the root `lint-staged` configuration.
 - Let oxfmt and oxlint enforce formatting and lint style.
 - Do not edit generated output, dependency directories, or lockfile sections by hand.
 
