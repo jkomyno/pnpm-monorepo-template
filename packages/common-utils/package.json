@@ -12,8 +12,12 @@
     "name": "Alberto Schiabel",
     "email": "alberto.schiabel@gmail.com"
   },
+  "license": "MIT",
   "files": [
-    "build"
+    "build",
+    "src",
+    "LICENSE",
+    "README.md"
   ],
   "main": "./build/index.js",
   "module": "./build/index.mjs",
