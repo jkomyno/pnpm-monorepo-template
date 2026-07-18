@@ -45,18 +45,18 @@ jobs:
       - name: '🔎 Typecheck'
         run: pnpm typecheck
 
-      - name: '🏗️ Build'
-        run: pnpm build
-
       - name: '🔍 Check exports'
         run: pnpm check:exports
+
+      - name: '🏗️ Build'
+        run: pnpm build
 
       - name: '🚨 Lint code'
         run: pnpm lint:ci
 
-      - name: '🧳 Run unit tests'
-        run: pnpm test:unit
+      - name: '🧳 Run tests'
+        run: pnpm test
 
       - name: '📦 pkg.pr.new (preview release)'
         if: github.event_name == 'pull_request'
-        run: pnpm dlx pkg-pr-new@0.0.65 publish './packages/*' --packageManager=pnpm
+        run: pnpm exec pkg-pr-new publish './packages/*' --packageManager=pnpm

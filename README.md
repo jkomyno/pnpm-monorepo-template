@@ -128,10 +128,9 @@ Repeat for each publishable package in the monorepo. Optional: under **Publishin
 
 ## Test Structure
 
-We follow an opinionated convention for storing and running tests.
-All tests should be written in the `__tests__` directory of a local package.
-Moreover, unit tests should be placed in the `__tests__/unit` folder; similarly, integration tests should be placed in the `__tests__/integration` folder.
-This allows for easily running groups of tests (for instance, you might want to run unit tests locally, while deferring integration tests - that will probably need access to external services like Docker containers - to the CI only).
+Tests live in each package's `__tests__` directory. Put isolated, deterministic tests in `__tests__/unit` and package-boundary or adapter tests in `__tests__/integration`.
+
+`pnpm test` runs both groups locally and in CI. Keep required integration tests hermetic; put tests that need external infrastructure behind an explicit, opt-in script or workflow instead of the default verification path.
 
 ## FAQ
 

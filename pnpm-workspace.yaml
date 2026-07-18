@@ -9,6 +9,7 @@ catalog:
   lint-staged: ^16.2.7
   oxfmt: 0.51.0
   oxlint: 1.66.0
+  pkg-pr-new: 0.0.65
   publint: ^0.3.16
   rimraf: ^6.1.2
   tsdown: 0.22.5
