@@ -49,6 +49,7 @@
     "typecheck:src": "tsc --noEmit -p tsconfig.build.json",
     "typecheck:test": "tsc --noEmit -p tsconfig.json",
     "test": "vitest run",
-    "test:unit": "vitest --project unit run"
+    "test:unit": "vitest run --project unit --passWithNoTests",
+    "test:integration": "vitest run --project integration --passWithNoTests"
   }
 }

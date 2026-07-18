@@ -12,7 +12,8 @@
     "clean": "rimraf build .turbo",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "vitest run",
-    "test:integration": "vitest --project integration run"
+    "test:unit": "vitest run --project unit --passWithNoTests",
+    "test:integration": "vitest run --project integration --passWithNoTests"
   },
   "dependencies": {
     "@jkomyno/common-utils": "workspace:*"

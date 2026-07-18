@@ -13,6 +13,15 @@ export default defineConfig({
           include: ['__tests__/unit/**/*.test.ts'],
         },
       },
+      {
+        resolve: { alias: srcAlias(import.meta.url) },
+        ssr: { resolve: baseResolveConfig },
+        test: {
+          ...baseTestConfig,
+          name: 'integration',
+          include: ['__tests__/integration/**/*.test.ts'],
+        },
+      },
     ],
   },
 })

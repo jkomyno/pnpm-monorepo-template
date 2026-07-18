@@ -45,11 +45,11 @@ jobs:
       - name: '🔎 Typecheck'
         run: pnpm typecheck
 
-      - name: '🏗️ Build'
-        run: pnpm build
-
       - name: '🔍 Check exports'
         run: pnpm check:exports
+
+      - name: '🏗️ Build'
+        run: pnpm build
 
       - name: '🚨 Lint code'
         run: pnpm lint:ci
