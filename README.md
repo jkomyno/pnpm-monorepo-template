@@ -85,7 +85,7 @@ At this point the repository is ready for normal development. Use `pnpm build`, 
 - `turborepo`, whose configuration is stored in [`turbo.json`](./turbo.json)
 - centralized dependency versions through the `pnpm` catalog in [`pnpm-workspace.yaml`](./pnpm-workspace.yaml), plus install hardening with release-age gating and targeted transitive dependency overrides.
 - the `vitest` test engine, whose shared configuration is stored in [`vitest.config.base.ts`](./vitest.config.base.ts). Workspace imports in tests resolve to TypeScript sources through the `@jkomyno/source` export condition (mirroring the `customConditions` tsconfig setting), so running tests never requires building dependency packages first.
-- opinionated formatting and linting setups via [`oxfmt`](https://oxc.rs/docs/guide/usage/formatter.html) and [`oxlint`](https://oxc.rs/docs/guide/usage/linter.html), whose configurations are defined in the [`.oxfmtrc.jsonc`](./.oxfmtrc.jsonc) and [`.oxlintrc.jsonc`](./.oxlintrc.jsonc) files. [`Lefthook`](https://github.com/evilmartians/lefthook) runs the `lint-staged` checks before each commit.
+- opinionated formatting and linting setups via [`oxfmt`](https://oxc.rs/docs/guide/usage/formatter.html) and [`oxlint`](https://oxc.rs/docs/guide/usage/linter.html), whose configurations are defined in the [`.oxfmtrc.jsonc`](./.oxfmtrc.jsonc) and [`.oxlintrc.jsonc`](./.oxlintrc.jsonc) files. Type-aware checks through `oxlint-tsgolint` reject unsafe types and unhandled promises; lint warnings, unused code, focused or skipped tests, and unused disable comments also fail linting. [`Lefthook`](https://github.com/evilmartians/lefthook) runs the `lint-staged` checks before each commit.
 - [**Changesets**](https://github.com/changesets/changesets) for versioning and changelogs; the **Release** workflow opens a "Version Packages" PR when changesets land on `main`, and publishes to npm when that PR is merged using [npm trusted publishing (OIDC)](https://docs.npmjs.com/trusted-publishers)—no long-lived tokens. See [Publishing (OIDC)](#publishing-oidc) below.
 - [**pkg.pr.new**](https://pkg.pr.new) for continuous preview releases: each PR gets installable preview packages (install the [GitHub App](https://github.com/apps/pkg-pr-new) on the repo first).
 - shared AI-agent guidance through [`AGENTS.md`](./AGENTS.md) and its [`CLAUDE.md`](./CLAUDE.md) symlink, plus repository-local TypeScript and testing skills under [`.agents/skills`](./.agents/skills).
@@ -109,6 +109,7 @@ At this point the repository is ready for normal development. Use `pnpm build`, 
 - `pnpm bench:watch`: run benchmarks in watch mode for packages that define `bench:watch`.
 - `pnpm changeset`: add a new changeset (version bump + changelog entry).
 - `pnpm version-packages`: apply changesets (bump versions, update changelogs, then `pnpm install`). Used by the Release workflow.
+- `pnpm release`: build packages and publish through the Changesets CLI, including the release metadata used by Changesets Action.
 
 ## Publishing (OIDC)
 
@@ -126,9 +127,13 @@ Releases use [npm trusted publishing](https://docs.npmjs.com/trusted-publishers)
 
 Repeat for each publishable package in the monorepo. Optional: under **Publishing access**, enable “Require two-factor authentication and disallow tokens” so only the trusted workflow can publish.
 
+Set `publishConfig.provenance` to `true` in each publishable package, as in `common-utils`. The release scaffold uses Changesets Action 2 with `version-script`, `publish-script`, and `github-token` inputs.
+
 ## Test Structure
 
 Tests live in each package's `__tests__` directory. Put isolated, deterministic tests in `__tests__/unit` and package-boundary or adapter tests in `__tests__/integration`.
+
+Package test configurations use `vitest.config.mts` so Vite loads them as ESM while library packages can continue publishing CommonJS `.js` files.
 
 `pnpm test` runs both groups locally and in CI. Keep required integration tests hermetic; put tests that need external infrastructure behind an explicit, opt-in script or workflow instead of the default verification path.
 

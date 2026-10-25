@@ -2,33 +2,34 @@ packages:
   - 'packages/*'
 
 catalog:
-  '@arethetypeswrong/cli': ^0.18.2
-  '@changesets/cli': ^2.27.10
-  '@types/node': 24.13.3
-  lefthook: ^2.1.10
-  lint-staged: ^16.2.7
-  oxfmt: 0.51.0
-  oxlint: 1.66.0
-  pkg-pr-new: 0.0.65
-  publint: ^0.3.16
-  rimraf: ^6.1.2
-  tsdown: 0.22.5
-  turbo: ^2.9.14
+  '@arethetypeswrong/cli': ^0.18.5
+  '@changesets/cli': ^3.0.3
+  '@types/node': 26.6.5
+  lefthook: ^2.2.2
+  lint-staged: ^17.6.0
+  oxfmt: 0.74.0
+  oxlint: 1.89.0
+  oxlint-tsgolint: 7.0.2005
+  pkg-pr-new: 0.0.92
+  publint: ^0.3.25
+  rimraf: ^6.1.3
+  tsdown: 0.23.2
+  turbo: ^2.11.10
   typescript: ^7.0.2
-  vite: ^8.1.4
-  vitest: ^4.1.10
+  vite: ^8.3.5
+  vitest: ^5.0.5
 
 minimumReleaseAge: 1440
+# Exact exception for the latest preview CLI in this dependency refresh.
+minimumReleaseAgeExclude:
+  - pkg-pr-new@0.0.92
 
 overrides:
   '@isaacs/brace-expansion': ^5.0.1
-  defu: ^6.1.5
-  minimatch: ^10.2.3
-  picomatch: ^4.0.4
-  rolldown-plugin-dts: 0.27.6
-  yaml: ^2.8.3
-  yuku-codegen: 0.5.48
-  yuku-parser: 0.5.48
+  defu: ^6.1.7
+  minimatch: ^10.2.6
+  picomatch: ^4.0.7
+  yaml: ^2.9.1
 
 allowBuilds:
   esbuild: true

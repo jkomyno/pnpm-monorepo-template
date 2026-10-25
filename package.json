@@ -27,7 +27,7 @@
     "bench:watch": "turbo run bench:watch",
     "changeset": "changeset",
     "version-packages": "changeset version && pnpm install",
-    "release": "pnpm build && pnpm -r --filter='!@jkomyno/example' exec -- npm publish --provenance"
+    "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "catalog:",
@@ -37,6 +37,7 @@
     "lint-staged": "catalog:",
     "oxfmt": "catalog:",
     "oxlint": "catalog:",
+    "oxlint-tsgolint": "catalog:",
     "pkg-pr-new": "catalog:",
     "publint": "catalog:",
     "rimraf": "catalog:",
@@ -53,5 +54,5 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "packageManager": "pnpm@11.3.0"
+  "packageManager": "pnpm@12.15.0"
 }

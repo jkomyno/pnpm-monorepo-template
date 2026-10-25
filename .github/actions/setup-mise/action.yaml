@@ -9,9 +9,9 @@ runs:
   using: 'composite'
   steps:
     - name: '🧰 Install tools'
-      uses: jdx/mise-action@dba19683ed58901619b14f395a24841710cb4925 # v4.1.0
+      uses: jdx/mise-action@82a612c5ab8bcda7cc5db6b7e81a8e7584c3dc6e # v5.2.3
       with:
-        version: 2026.6.3
+        version: 2026.10.19
 
     - name: '🔎 Verify package manager metadata'
       shell: bash
@@ -24,7 +24,7 @@ runs:
         fi
 
     - name: 🔺️ Cache (turbo)
-      uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: .turbo
         key: ${{ runner.os }}-turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
@@ -40,7 +40,7 @@ runs:
       run: echo "path=$(pnpm store path --silent)" >> "$GITHUB_OUTPUT"
 
     - name: '📦 Cache (pnpm)'
-      uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: ${{ steps.pnpm-store.outputs.path }}
         key: ${{ runner.os }}-pnpm-store-${{ hashFiles('.mise.toml', 'mise.lock', 'pnpm-lock.yaml') }}

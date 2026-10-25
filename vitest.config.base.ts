@@ -20,8 +20,8 @@ export const baseTestConfig = {
  * `ssr.resolve` (top-level `resolve.conditions` only affects the client environment).
  * Custom conditions replace Vite's defaults, so the defaults are spread back in.
  *
- * Note: inline vitest projects do not inherit the root-level `ssr` options, so this
- * must be set on each project definition.
+ * Vitest 5 inline projects inherit the root configuration. Package configs can set
+ * this once at the root or explicitly on each project definition.
  */
 export const baseResolveConfig = {
   conditions: ['@jkomyno/source', ...defaultServerConditions],

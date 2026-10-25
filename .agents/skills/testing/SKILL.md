@@ -7,7 +7,7 @@ description: Vitest testing guide for this TypeScript monorepo. Use when writing
 
 ## Core Posture
 
-Follow root `AGENTS.md` for repository-wide test layout and verification. Inspect the owning package's scripts and `vitest.config.ts` before choosing a command, project, environment, or fixture pattern.
+Follow root `AGENTS.md` for repository-wide test layout and verification. Inspect the owning package's scripts and `vitest.config.mts` before choosing a command, project, environment, or fixture pattern.
 
 Start with the narrowest command that exercises the behavior, then broaden before handoff when the change affects shared code or public package contracts. Use the package's actual name and scripts:
 
@@ -24,7 +24,7 @@ Use the existing layout before adding a new one.
 | -------------- | ------------------------------------ | ---------------------------------------------------------------------------- |
 | Unit           | `__tests__/unit/**/*.test.ts`        | Pure logic and simulated boundaries; no network or real clock                |
 | Integration    | `__tests__/integration/**/*.test.ts` | Package interactions, real adapters, or explicitly expected external systems |
-| Package config | `packages/*/vitest.config.ts`        | Package projects extending the shared root defaults                          |
+| Package config | `packages/*/vitest.config.mts`       | Package projects extending the shared root defaults                          |
 
 Ship behavior changes with tests in the same change. Test through the public API when behavior crosses a package boundary; use lower-level tests only for isolated edge cases.
 
