@@ -25,6 +25,9 @@ This repository is a pragmatic TypeScript monorepo template built around pnpm wo
 - Keep shared configuration at the repository root and package-specific configuration beside the owning package.
 - Keep the pre-commit hook in `lefthook.yml` and its staged-file checks in the root `lint-staged` configuration.
 - Let oxfmt and oxlint enforce formatting and lint style.
+- Oxlint uses `oxlint-tsgolint` for type-aware checks. Keep unsafe types, unhandled promises, unused code, focused or skipped tests, and unused disable comments as errors. Test globals belong only under `__tests__`.
+- Keep release-age exceptions scoped to exact package versions.
+- Publish through the Changesets CLI so Changesets Action receives release metadata. Enable provenance in each publishable package's `publishConfig`.
 - Do not edit generated output, dependency directories, or lockfile sections by hand.
 
 ## TypeScript Rules
@@ -38,6 +41,7 @@ This repository is a pragmatic TypeScript monorepo template built around pnpm wo
 
 - Put unit tests in `__tests__/unit` and integration tests in `__tests__/integration`.
 - Keep unit tests deterministic and free of live network, real-time waits, and leaked process-wide state.
+- Use `vitest.config.mts` for package test configurations so Vite recognizes ESM without changing the package's published module format.
 - Test behavior through public APIs when the contract crosses a package boundary.
 - Use the repository-local [`testing` skill](.agents/skills/testing/SKILL.md) when adding, changing, debugging, or reviewing tests.
 

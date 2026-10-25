@@ -13,6 +13,9 @@
     "email": "alberto.schiabel@gmail.com"
   },
   "license": "MIT",
+  "publishConfig": {
+    "provenance": true
+  },
   "files": [
     "build",
     "src",

@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitest/config'
-import { baseResolveConfig, baseTestConfig, srcAlias } from '../../vitest.config.base'
+import { baseResolveConfig, baseTestConfig, srcAlias } from '../../vitest.config.base.ts'
 
 export default defineConfig({
   test: {
