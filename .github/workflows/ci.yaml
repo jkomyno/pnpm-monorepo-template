@@ -22,20 +22,36 @@ permissions:
   pull-requests: read
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
+  detect-changes:
+    name: '🔍  Detect changed packages'
+    runs-on: ubuntu-latest
+    outputs:
+      api: ${{ steps.diff.outputs.api }}
+      web: ${{ steps.diff.outputs.web }}
+      docs: ${{ steps.diff.outputs.docs }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: Yearnless/ci-diff-changed@v1
+        id: diff
+        with:
+          base-ref: origin/main
+          pattern: 'packages/**'
 
+  build:
+    needs: detect-changes
+    if: ${{ needs.detect-changes.outputs.api == 'true' || needs.detect-changes.outputs.web == 'true' }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
-
     name: 'Build: ${{ matrix.os }}'
-
     steps:
       - name: Prepare git
         run: git config --global core.autocrlf false
 
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
 
@@ -60,3 +76,19 @@ jobs:
       - name: '📦 pkg.pr.new (preview release)'
         if: github.event_name == 'pull_request'
         run: pnpm exec pkg-pr-new publish './packages/*' --packageManager=pnpm
+
+  build-docs:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.docs == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - name: '🧰 Setup (mise)'
+        uses: ./.github/actions/setup-mise
+      - name: '🔎 Typecheck'
+        run: pnpm typecheck
+      - name: '🏗️ Build docs'
+        run: pnpm build:docs
+EOF
